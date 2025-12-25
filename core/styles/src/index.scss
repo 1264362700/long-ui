@@ -22,6 +22,7 @@
 @use './components/pagination.scss';
 @use './components/space.scss';
 @use './components/card.scss';
+@use './components/skeleton.scss';
 @use './dark/index';
 
 :root {
@@ -42,14 +43,14 @@
     --long-color-info: #909399;
 
     @for $i from 1 through 9 {
-        --long-color-primary-light-#{$i}: #{mix(#ffffff, var(--long-color-primary), $i * 10%)};
+        --long-color-primary-light-#{$i}: #{mix(#ffffff, #1677ff, $i * 10%)};
         --long-color-success-light-#{$i}: #{mix(#ffffff, #67c23a, $i * 10%)};
         --long-color-warning-light-#{$i}: #{mix(#ffffff, #e6a23c, $i * 10%)};
         --long-color-danger-light-#{$i}: #{mix(#ffffff, #f56c6c, $i * 10%)};
         --long-color-info-light-#{$i}: #{mix(#ffffff, #909399, $i * 10%)};
     }
 
-    --long-color-primary-dark-2: #{mix(#000000, #409eff, 20%)};
+    --long-color-primary-dark-2: #{mix(#000000, #1677ff, 20%)};
 
     /* --- Text Colors --- */
     --long-text-color-primary: #303133;

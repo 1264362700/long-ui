@@ -1,0 +1,39 @@
+@use '../common/mixins.scss' as *;
+
+@include b(skeleton) {
+    width: 100%;
+
+    @include e(row) {
+        width: 100%;
+        height: 16px;
+        background: rgba(0, 0, 0, 0.06);
+        border-radius: 4px;
+        margin-bottom: 12px;
+
+        &:last-child {
+            width: 60%;
+            margin-bottom: 0;
+        }
+    }
+
+    &.is-animated {
+        @include e(row) {
+            background: linear-gradient(90deg,
+                    rgba(0, 0, 0, 0.06) 25%,
+                    rgba(0, 0, 0, 0.12) 37%,
+                    rgba(0, 0, 0, 0.06) 63%);
+            background-size: 400% 100%;
+            animation: long-skeleton-loading 1.4s ease infinite;
+        }
+    }
+}
+
+@keyframes long-skeleton-loading {
+    0% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0 50%;
+    }
+}

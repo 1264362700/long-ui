@@ -16,23 +16,12 @@
 
 <script setup lang="ts">
 import { useNamespace } from '@long-ui/hooks'
-import type { PropType, CSSProperties } from 'vue'
+import { cardProps } from './card'
 
 defineOptions({
   name: 'LongCard'
 })
 
-const props = defineProps({
-  title: String,
-  shadow: {
-    type: Boolean,
-    default: true
-  },
-  bodyStyle: {
-    type: Object as PropType<CSSProperties>,
-    default: () => ({})
-  }
-})
-
+const props = defineProps(cardProps)
 const ns = useNamespace('card')
 </script>

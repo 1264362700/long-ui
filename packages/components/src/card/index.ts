@@ -5,3 +5,4 @@ export const LongCard = withInstall(Card)
 export default LongCard
 
 export * from './src/card'
+

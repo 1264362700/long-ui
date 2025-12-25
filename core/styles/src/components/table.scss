@@ -5,30 +5,26 @@
 @include b(table) {
     --long-table-border-color: #f0f0f0;
     --long-table-header-bg: #fafafa;
-    --long-table-row-hover-bg: #fafafa;
+    --long-table-row-hover-bg: #f5f5f5;
     --long-table-text-color: rgba(0, 0, 0, 0.88);
     --long-table-header-color: rgba(0, 0, 0, 0.88);
+    --long-table-font-size: 14px;
 
     position: relative;
-    overflow: hidden;
     box-sizing: border-box;
     width: 100%;
-    max-width: 100%;
     background-color: #fff;
-    font-size: 14px;
+    font-size: var(--long-table-font-size);
     color: var(--long-table-text-color);
     border: 1px solid var(--long-table-border-color);
-    border-radius: 8px 8px 0 0;
+    border-radius: 8px;
+    overflow: hidden;
 
     table {
         width: 100%;
         border-spacing: 0;
         border-collapse: separate;
         table-layout: fixed;
-    }
-
-    @include e(header-wrapper) {
-        background: var(--long-table-header-bg);
     }
 
     th {
@@ -39,7 +35,7 @@
         color: var(--long-table-header-color);
         border-bottom: 1px solid var(--long-table-border-color);
         border-right: 1px solid var(--long-table-border-color);
-        transition: background 0.3s;
+        transition: background 0.2s;
 
         &:last-child {
             border-right: none;
@@ -51,7 +47,7 @@
         background: #fff;
         border-bottom: 1px solid var(--long-table-border-color);
         border-right: 1px solid var(--long-table-border-color);
-        transition: background 0.3s;
+        transition: background 0.2s;
 
         &:last-child {
             border-right: none;

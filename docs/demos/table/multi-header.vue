@@ -1,5 +1,6 @@
 <template>
-  <long-table :data="tableData" border>
+  <LongSpace direction="vertical" style="width: 100%">
+    <LongTable :data="tableData" border>
     <long-table-column prop="id" label="ID" width="80" />
     <long-table-column label="员工信息">
       <long-table-column label="基础资料">

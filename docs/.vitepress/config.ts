@@ -70,8 +70,9 @@ export default defineConfig({
                             text: '数据展示',
                             items: [
                                 { text: 'Table 表格', link: '/components/table' },
-                                { text: 'Calendar 日历', link: '/components/calendar' },
                                 { text: 'Empty 空状态', link: '/components/empty' },
+                                { text: 'Loading 加载', link: '/components/loading' },
+                                { text: 'Skeleton 骨架屏', link: '/components/skeleton' },
                                 { text: 'Pagination 分页', link: '/components/pagination' }
                             ]
                         },
