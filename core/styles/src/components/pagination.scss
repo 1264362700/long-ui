@@ -1,0 +1,112 @@
+@use '../common/mixins.scss' as *;
+
+@include b(pagination) {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.88);
+    user-select: none;
+
+    @include e(total) {
+        margin-right: 12px;
+    }
+
+    @include e(pager-wrapper) {
+        display: flex;
+        align-items: center;
+    }
+
+    @include e(pager) {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    @include e(item) {
+        min-width: 32px;
+        height: 32px;
+        line-height: 30px;
+        text-align: center;
+        margin: 0 4px;
+        border: 1px solid #d9d9d9;
+        border-radius: 6px;
+        background: #fff;
+        cursor: pointer;
+        transition: all 0.2s;
+        box-sizing: border-box;
+        padding: 0 6px;
+
+        &:hover:not(.is-disabled) {
+            border-color: #1677ff;
+            color: #1677ff;
+        }
+
+        &.is-active {
+            border-color: #1677ff;
+            color: #1677ff;
+            font-weight: 600;
+        }
+
+        &.is-disabled {
+            cursor: not-allowed;
+            color: rgba(0, 0, 0, 0.25);
+            background-color: rgba(0, 0, 0, 0.04);
+            border-color: #d9d9d9;
+        }
+    }
+
+    @include e(prev) {
+        @extend .long-pagination__item;
+
+        &.is-disabled {
+            cursor: not-allowed;
+            color: rgba(0, 0, 0, 0.25);
+            background-color: rgba(0, 0, 0, 0.04);
+        }
+    }
+
+    @include e(next) {
+        @extend .long-pagination__item;
+
+        &.is-disabled {
+            cursor: not-allowed;
+            color: rgba(0, 0, 0, 0.25);
+            background-color: rgba(0, 0, 0, 0.04);
+        }
+    }
+
+    @include when(background) {
+        @include e(item) {
+            border: none;
+            background-color: rgba(0, 0, 0, 0.04);
+
+            &.is-active {
+                background-color: #1677ff;
+                color: #fff;
+            }
+        }
+    }
+
+    @include when(small) {
+        font-size: 12px;
+
+        @include e(item) {
+            min-width: 24px;
+            height: 24px;
+            line-height: 22px;
+        }
+
+        @include e(prev) {
+            min-width: 24px;
+            height: 24px;
+            line-height: 22px;
+        }
+
+        @include e(next) {
+            min-width: 24px;
+            height: 24px;
+            line-height: 22px;
+        }
+    }
+}

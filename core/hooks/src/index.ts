@@ -11,3 +11,7 @@ export { useLockscreen } from './use-lockscreen'
 
 // Global Config Hook
 export { useGlobalConfig, provideGlobalConfig } from './use-global-config'
+
+// Table Hook
+export { useTable } from './use-table'
+export type { UseTableReturn } from './use-table'

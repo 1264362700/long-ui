@@ -15,8 +15,10 @@ export default defineConfig({
             lang: 'zh-CN',
             themeConfig: {
                 nav: [
+                    { text: '设计规范', link: '/design-system' },
                     { text: '指南', link: '/guide/installation' },
-                    { text: '组件', link: '/components/button' }
+                    { text: '组件', link: '/components/button' },
+                    { text: 'Hooks', link: '/hooks/use-table' }
                 ],
                 sidebar: {
                     '/guide/': [
@@ -31,23 +33,52 @@ export default defineConfig({
                             ]
                         }
                     ],
+                    '/hooks/': [
+                        {
+                            text: 'Hooks',
+                            items: [
+                                { text: 'useTable 表格钩子', link: '/hooks/use-table' },
+                                { text: 'useNamespace 命名空间', link: '/hooks/use-namespace' }
+                            ]
+                        }
+                    ],
                     '/components/': [
                         {
-                            text: '基础组件',
+                            text: '通用',
                             items: [
                                 { text: 'Button 按钮', link: '/components/button' },
+                                { text: 'Icon 图标', link: '/components/icon' },
+                                { text: 'Tag 标签', link: '/components/tag' }
+                            ]
+                        },
+                        {
+                            text: '表单',
+                            items: [
                                 { text: 'Input 输入框', link: '/components/input' },
-                                { text: 'Select 选择器', link: '/components/select' },
-                                { text: 'TimePicker 时间选择器', link: '/components/time-picker' },
-                                { text: 'Switch 开关', link: '/components/switch' },
+                                { text: 'InputNumber 计数器', link: '/components/input-number' },
                                 { text: 'Radio 单选框', link: '/components/radio' },
                                 { text: 'Checkbox 多选框', link: '/components/checkbox' },
+                                { text: 'Select 选择器', link: '/components/select' },
+                                { text: 'Switch 开关', link: '/components/switch' },
+                                { text: 'TimePicker 时间选择器', link: '/components/time-picker' },
+                                { text: 'Form 表单', link: '/components/form' }
+                            ]
+                        },
+                        {
+                            text: '数据展示',
+                            items: [
+                                { text: 'Table 表格', link: '/components/table' },
                                 { text: 'Calendar 日历', link: '/components/calendar' },
-                                { text: 'InputNumber 计数器', link: '/components/input-number' },
+                                { text: 'Empty 空状态', link: '/components/empty' },
+                                { text: 'Pagination 分页', link: '/components/pagination' }
+                            ]
+                        },
+                        {
+                            text: '反馈',
+                            items: [
                                 { text: 'Dialog 对话框', link: '/components/dialog' },
                                 { text: 'Message 消息提示', link: '/components/message' },
-                                { text: 'Form 表单', link: '/components/form' },
-                                { text: 'Table 表格', link: '/components/table' },
+                                { text: 'Loading 加载', link: '/components/loading' }
                             ]
                         }
                     ]

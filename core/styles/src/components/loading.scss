@@ -1,0 +1,74 @@
+@use '../common/mixins.scss' as *;
+
+@include b(loading) {
+    position: absolute;
+    z-index: 2000;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include when(fullscreen) {
+        position: fixed;
+    }
+
+    @include e(spinner) {
+        text-align: center;
+    }
+
+    @include e(svg) {
+        height: 42px;
+        width: 42px;
+        animation: loading-rotate 2s linear infinite;
+    }
+
+    @include e(path) {
+        animation: loading-dash 1.5s ease-in-out infinite;
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: 0;
+        stroke-width: 2;
+        stroke: #1677ff;
+        stroke-linecap: round;
+    }
+
+    @include e(text) {
+        color: #1677ff;
+        margin: 3px 0;
+        font-size: 14px;
+    }
+
+    // Fade Transition
+    &-fade-enter-from,
+    &-fade-leave-to {
+        opacity: 0;
+    }
+}
+
+@keyframes loading-rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loading-dash {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -40px;
+    }
+
+    100% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -120px;
+    }
+}

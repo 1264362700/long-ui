@@ -17,6 +17,8 @@ import { LongTable } from './table'
 import { LongTableColumn } from './table-column'
 import { LongTag } from './tag'
 import { LongEmpty } from './empty'
+import { LongLoading } from './loading'
+import { LongPagination } from './pagination'
 import type { App } from 'vue'
 
 const components = [
@@ -40,7 +42,9 @@ const components = [
     LongTable,
     LongTableColumn,
     LongTag,
-    LongEmpty
+    LongEmpty,
+    LongLoading,
+    LongPagination
 ]
 
 export default {
@@ -70,3 +74,5 @@ export * from './table'
 export * from './table-column'
 export * from './tag'
 export * from './empty'
+export * from './loading'
+export * from './pagination'
