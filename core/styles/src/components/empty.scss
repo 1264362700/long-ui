@@ -1,0 +1,36 @@
+@use '../common/mixins.scss' as *;
+
+@include b(empty) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 0;
+    text-align: center;
+    box-sizing: border-box;
+
+    @include e(image) {
+        height: 100px;
+        margin-bottom: 8px;
+
+        svg,
+        img {
+            height: 100%;
+            vertical-align: middle;
+        }
+    }
+
+    @include e(description) {
+        color: rgba(0, 0, 0, 0.25);
+        font-size: 14px;
+        line-height: 1.5715;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    @include e(footer) {
+        margin-top: 16px;
+    }
+}

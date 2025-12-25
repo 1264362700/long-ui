@@ -18,6 +18,12 @@
 
 <preview path="../demos/table/custom.vue" title="自定义列模板" description="通过 Scoped Slot 可以获取到 row, column, $index 和 store 的数据。" />
 
+## 多级表头
+
+数据结构比较复杂的时候，可以使用多级表头来展现数据的层次关系。只需在 `long-table-column` 内嵌套 `long-table-column` 即可。
+
+<preview path="../demos/table/multi-header.vue" title="多级表头" description="多级表头的用法。" />
+
 ## Table API
 
 | 属性 | 说明 | 类型 | 默认值 |
@@ -35,6 +41,7 @@
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :--- | :--- | :--- | :--- |
-| label | 显示的标题 | `string` | — |
-| prop | 对应列内容的字段名，也可以使用 property 属性 | `string` | — |
+| label | 显示标题 | `string` | — |
+| prop | 对应列内容的字段名 | `string` | — |
 | width | 对应列的宽度 | `string` | — |
+| align | 对齐方式 | `string` | `left` |

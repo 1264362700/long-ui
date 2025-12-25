@@ -4,32 +4,23 @@
 
 ## 基础用法
 
-<preview path="../demos/switch/basic.vue" title="基础用法" description="绑定 v-model 到一个 Boolean 类型的变量。"></preview>
+<preview path="../demos/switch/basic.vue" title="基础用法" description="绑定 v-model 到一个 Boolean 类型的变量。" />
 
-## 文字描述
-
-<preview path="../demos/switch/text.vue" title="文字描述" description="使用 active-text 属性与 inactive-text 属性来设置开关的文字描述。"></preview>
-
-## API
+## Switch API
 
 ### Attributes
-
-| 属性名 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| model-value / v-model | 绑定值 | boolean / string / number | false |
-| disabled | 是否禁用 | boolean | false |
-| loading | 是否显示加载中状态 | boolean | false |
-| size | 尺寸 | 'large' \| 'default' \| 'small' | 'default' |
-| width | 宽度 | string \| number | - |
-| active-text | 开关打开时的文字描述 | string | - |
-| inactive-text | 开关关闭时的文字描述 | string | - |
-| active-value | 开关打开时的值 | boolean / string / number | true |
-| inactive-value | 开关关闭时的值 | boolean / string / number | false |
-| name | input 的 name 属性 | string | - |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 |
+| --- | --- | --- | --- | --- |
+| model-value / v-model | 绑定值 | `boolean / string / number` | — | `false` |
+| disabled | 是否禁用 | `boolean` | — | `false` |
+| loading | 是否显示加载中 | `boolean` | — | `false` |
+| active-text | 开启时的文字描述 | `string` | — | — |
+| inactive-text | 关闭时的文字描述 | `string` | — | — |
+| active-value | 开启时的值 | `boolean / string / number` | — | `true` |
+| inactive-value | 关闭时的值 | `boolean / string / number` | — | `false` |
+| size | 开关尺寸 | `string` | `large / default / small` | `default` |
 
 ### Events
-
-| 事件名 | 说明 | 回调参数 |
+| 事件名称 | 说明 | 回调参数 |
 | --- | --- | --- |
-| update:modelValue | 绑定值改变时触发 | (val: boolean \| string \| number) |
-| change | 绑定值改变时触发 | (val: boolean \| string \| number) |
+| change | 状态发生变化时的回调函数 | `newValue` |

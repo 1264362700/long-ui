@@ -38,7 +38,7 @@
         width: 100%;
 
         tr {
-            transition: background 0.3s;
+            transition: background 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 
             &:hover {
                 td {
@@ -51,7 +51,7 @@
     // Cells
     th,
     td {
-        padding: 16px 16px;
+        padding: 12px 16px;
         min-width: 0;
         box-sizing: border-box;
         text-overflow: ellipsis;
@@ -62,7 +62,7 @@
     }
 
     th {
-        font-weight: 500;
+        font-weight: 600;
         color: rgba(0, 0, 0, 0.88);
         background-color: #fafafa;
         user-select: none;

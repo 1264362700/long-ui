@@ -1,0 +1,83 @@
+@use '../common/mixins.scss' as *;
+
+@include b(tag) {
+    --long-tag-bg: #fafafa;
+    --long-tag-border: #d9d9d9;
+    --long-tag-text: rgba(0, 0, 0, 0.88);
+    --long-tag-font-size: 12px;
+    --long-tag-radius: 4px;
+
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    padding: 0 7px;
+    height: 22px;
+    line-height: 20px;
+    background: var(--long-tag-bg);
+    border: 1px solid var(--long-tag-border);
+    border-radius: var(--long-tag-radius);
+    color: var(--long-tag-text);
+    font-size: var(--long-tag-font-size);
+    transition: all 0.2s;
+    box-sizing: border-box;
+
+    @include m(primary) {
+        --long-tag-bg: #e6f4ff;
+        --long-tag-border: #91caff;
+        --long-tag-text: #0958d9;
+    }
+
+    @include m(success) {
+        --long-tag-bg: #f6ffed;
+        --long-tag-border: #b7eb8f;
+        --long-tag-text: #389e0d;
+    }
+
+    @include m(warning) {
+        --long-tag-bg: #fff7e6;
+        --long-tag-border: #ffd591;
+        --long-tag-text: #d46b08;
+    }
+
+    @include m(error) {
+        --long-tag-bg: #fff1f0;
+        --long-tag-border: #ffa39e;
+        --long-tag-text: #cf1322;
+    }
+
+    @include m(info) {
+        --long-tag-bg: #f5f5f5;
+        --long-tag-border: #d9d9d9;
+        --long-tag-text: rgba(0, 0, 0, 0.88);
+    }
+
+    @include e(close) {
+        margin-left: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.45);
+        display: inline-flex;
+        align-items: center;
+        transition: color 0.2s;
+
+        &:hover {
+            color: rgba(0, 0, 0, 0.88);
+        }
+    }
+
+    @include when(round) {
+        border-radius: 12px;
+    }
+
+    @include m(large) {
+        height: 28px;
+        line-height: 26px;
+        padding: 0 10px;
+    }
+
+    @include m(small) {
+        height: 18px;
+        line-height: 16px;
+        padding: 0 5px;
+    }
+}

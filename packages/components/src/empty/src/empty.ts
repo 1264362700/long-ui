@@ -1,0 +1,17 @@
+import type { ExtractPropTypes } from 'vue'
+
+export const emptyProps = {
+    description: {
+        type: String,
+        default: '暂无数据'
+    },
+    image: {
+        type: String,
+        default: ''
+    },
+    imageSize: {
+        type: [Number, String]
+    }
+} as const
+
+export type EmptyProps = ExtractPropTypes<typeof emptyProps>

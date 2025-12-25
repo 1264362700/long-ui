@@ -15,6 +15,8 @@ import { LongForm } from './form'
 import { LongFormItem } from './form-item'
 import { LongTable } from './table'
 import { LongTableColumn } from './table-column'
+import { LongTag } from './tag'
+import { LongEmpty } from './empty'
 import type { App } from 'vue'
 
 const components = [
@@ -36,7 +38,9 @@ const components = [
     LongForm,
     LongFormItem,
     LongTable,
-    LongTableColumn
+    LongTableColumn,
+    LongTag,
+    LongEmpty
 ]
 
 export default {
@@ -64,3 +68,5 @@ export * from './form'
 export * from './form-item'
 export * from './table'
 export * from './table-column'
+export * from './tag'
+export * from './empty'

@@ -2,19 +2,20 @@
 
 @include b(input) {
     --long-input-height: 32px;
-    --long-input-color: #262626;
-    --long-input-placeholder-color: #bfbfbf;
+    --long-input-color: rgba(0, 0, 0, 0.88);
+    --long-input-placeholder-color: rgba(0, 0, 0, 0.25);
     --long-input-border-color: #d9d9d9;
     --long-input-hover-border-color: #4096ff;
     --long-input-focus-border-color: #4096ff;
     --long-input-focus-shadow: 0 0 0 2px rgba(5, 145, 255, 0.1);
-    --long-input-disabled-bg: #f5f5f5;
-    --long-input-disabled-color: #bfbfbf;
+    --long-input-disabled-bg: rgba(0, 0, 0, 0.04);
+    --long-input-disabled-color: rgba(0, 0, 0, 0.25);
 
     position: relative;
     display: inline-block;
     width: 100%;
     font-size: 14px;
+    line-height: 1.5715;
     color: var(--long-input-color);
     box-sizing: border-box;
     vertical-align: middle;
@@ -28,7 +29,7 @@
         background-image: none;
         border: 1px solid var(--long-input-border-color);
         border-radius: 6px;
-        transition: all 0.2s;
+        transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
         box-sizing: border-box;
 
         &:hover {
@@ -52,6 +53,7 @@
             }
 
             input {
+                color: inherit;
                 cursor: not-allowed;
                 background-color: transparent;
 
@@ -64,15 +66,16 @@
 
     @include e(inner) {
         width: 100%;
-        height: calc(var(--long-input-height) - 10px);
+        height: 22px;
         padding: 0;
         font-size: inherit;
-        line-height: 1.5715;
+        line-height: inherit;
         color: inherit;
         background: none;
         border: none;
         outline: none;
         box-sizing: border-box;
+        font-family: inherit;
 
         &::placeholder {
             color: var(--long-input-placeholder-color);
@@ -84,6 +87,7 @@
         display: inline-flex;
         align-items: center;
         color: rgba(0, 0, 0, 0.45);
+        font-size: 14px;
     }
 
     @include e(suffix) {
@@ -92,6 +96,7 @@
         align-items: center;
         color: rgba(0, 0, 0, 0.45);
         gap: 8px;
+        font-size: 14px;
     }
 
     @include e(clear) {
@@ -139,6 +144,10 @@
         @include e(wrapper) {
             padding: 0px 7px;
         }
+
+        @include e(inner) {
+            height: 20px;
+        }
     }
 }
 
@@ -153,19 +162,19 @@
         width: 100%;
         min-height: 32px;
         padding: 4px 11px;
-        color: #262626;
+        color: rgba(0, 0, 0, 0.88);
         line-height: 1.5715;
         background-color: #fff;
         background-image: none;
         border: 1px solid #d9d9d9;
         border-radius: 6px;
-        transition: all 0.2s;
+        transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
         box-sizing: border-box;
         outline: none;
         resize: vertical;
 
         &::placeholder {
-            color: #bfbfbf;
+            color: rgba(0, 0, 0, 0.25);
         }
 
         &:hover {
@@ -178,8 +187,8 @@
         }
 
         @include when(disabled) {
-            color: #bfbfbf;
-            background-color: #f5f5f5;
+            color: rgba(0, 0, 0, 0.25);
+            background-color: rgba(0, 0, 0, 0.04);
             cursor: not-allowed;
 
             &:hover {

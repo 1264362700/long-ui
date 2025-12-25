@@ -1,66 +1,38 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { ComponentSize } from '@long-ui/utils'
 
 export const switchProps = {
     modelValue: {
         type: [Boolean, String, Number] as PropType<boolean | string | number>,
-        default: false,
+        default: false
     },
     disabled: {
         type: Boolean,
-        default: false,
+        default: false
     },
     loading: {
         type: Boolean,
-        default: false,
-    },
-    size: {
-        type: String as PropType<ComponentSize>,
-        default: 'default',
-    },
-    width: {
-        type: [String, Number] as PropType<string | number>,
-        default: '',
-    },
-    activeIcon: {
-        type: String,
-        default: '',
-    },
-    inactiveIcon: {
-        type: String,
-        default: '',
-    },
-    activeText: {
-        type: String,
-        default: '',
-    },
-    inactiveText: {
-        type: String,
-        default: '',
+        default: false
     },
     activeValue: {
         type: [Boolean, String, Number] as PropType<boolean | string | number>,
-        default: true,
+        default: true
     },
     inactiveValue: {
         type: [Boolean, String, Number] as PropType<boolean | string | number>,
-        default: false,
+        default: false
     },
-    name: {
-        type: String,
-        default: '',
-    },
-    id: {
-        type: String,
-        default: '',
-    },
+    activeText: String,
+    inactiveText: String,
+    activeColor: String,
+    inactiveColor: String,
+    size: {
+        type: String as PropType<'large' | 'default' | 'small'>,
+        default: 'default'
+    }
 } as const
 
 export type SwitchProps = ExtractPropTypes<typeof switchProps>
-
-export const switchEmits = {
-    'update:modelValue': (_: boolean | string | number) => true,
-    change: (_: boolean | string | number) => true,
+export type SwitchEmits = {
+    'update:modelValue': [value: boolean | string | number]
+    'change': [value: boolean | string | number]
 }
-
-export type SwitchEmits = typeof switchEmits
