@@ -1,0 +1,82 @@
+@use 'sass:map';
+@use '../common/var' as *;
+@use '../common/mixins.scss' as *;
+
+@include b(form) {
+    @include m(inline) {
+        .#{$namespace}-form-item {
+            display: inline-flex;
+            vertical-align: top;
+            margin-right: 32px;
+        }
+
+        .#{$namespace}-form-item__label {
+            float: none;
+            display: inline-block;
+        }
+
+        .#{$namespace}-form-item__content {
+            display: inline-block;
+            vertical-align: top;
+        }
+    }
+}
+
+@include b(form-item) {
+    display: flex;
+    margin-bottom: 18px;
+
+    // Label
+    @include e(label) {
+        justify-content: flex-end;
+        align-items: flex-start;
+        flex: 0 0 auto;
+        font-size: var(--long-font-size-base);
+        color: var(--long-text-color-regular);
+        height: 32px;
+        line-height: 32px;
+        padding: 0 12px 0 0;
+        box-sizing: border-box;
+    }
+
+    // Content
+    @include e(content) {
+        position: relative;
+        font-size: 14px;
+        flex: 1;
+        min-width: 0;
+        line-height: 32px;
+    }
+
+    // Error Message
+    @include e(error) {
+        color: var(--long-color-danger);
+        font-size: 12px;
+        line-height: 1;
+        padding-top: 4px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+    }
+
+    @include when(error) {
+        .#{$namespace}-input__wrapper {
+            box-shadow: 0 0 0 1px var(--long-color-danger) inset;
+        }
+
+        // Focus state for error
+        .#{$namespace}-input__wrapper:focus-within {
+            box-shadow: 0 0 0 1px var(--long-color-danger) inset, 0 0 0 3px var(--long-color-danger-light-9);
+        }
+    }
+
+    @include when(required) {
+        @include e(label) {
+            &::before {
+                content: '*';
+                color: var(--long-color-danger);
+                margin-right: 4px;
+            }
+        }
+    }
+}

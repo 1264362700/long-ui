@@ -1,0 +1,32 @@
+
+> long-ui-monorepo@0.0.1 docs:build /Users/chenlong/Desktop/long-ui
+> pnpm -C docs build
+
+
+> @long-ui/docs@0.0.1 build /Users/chenlong/Desktop/long-ui/docs
+> vitepress build
+
+
+  vitepress v1.6.4
+
+- building client + server bundles...
+The glob option "as" has been deprecated in favour of "query". Please update `as: 'raw'` to `query: '?raw', import: 'default'`.
+The glob option "as" has been deprecated in favour of "query". Please update `as: 'raw'` to `query: '?raw', import: 'default'`.
+[32m✓[0m building client + server bundles...
+- rendering pages...
+[31m✖[0m rendering pages...
+build error:
+Cannot read properties of undefined (reading 'row')
+TypeError: Cannot read properties of undefined (reading 'row')
+    at file:///Users/chenlong/Desktop/long-ui/docs/.vitepress/.temp/app.js:12760:101
+    at renderFnWithContext (/Users/chenlong/Desktop/long-ui/node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.cjs.prod.js:312:13)
+    at normalizeChildren (/Users/chenlong/Desktop/long-ui/node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.cjs.prod.js:6168:34)
+    at createBaseVNode (/Users/chenlong/Desktop/long-ui/node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.cjs.prod.js:5994:5)
+    at _createVNode (/Users/chenlong/Desktop/long-ui/node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.cjs.prod.js:6056:10)
+    at file:///Users/chenlong/Desktop/long-ui/docs/.vitepress/.temp/app.js:12754:15
+    at renderFnWithContext (/Users/chenlong/Desktop/long-ui/node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.cjs.prod.js:312:13)
+    at normalizeChildren (/Users/chenlong/Desktop/long-ui/node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.cjs.prod.js:6168:34)
+    at createBaseVNode (/Users/chenlong/Desktop/long-ui/node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.cjs.prod.js:5994:5)
+    at Object._createVNode [as createVNode] (/Users/chenlong/Desktop/long-ui/node_modules/.pnpm/@vue+runtime-core@3.5.25/node_modules/@vue/runtime-core/dist/runtime-core.cjs.prod.js:6056:10)
+ ELIFECYCLE  Command failed with exit code 1.
+ ELIFECYCLE  Command failed with exit code 1.

@@ -1,0 +1,143 @@
+@use '../common/var' as *;
+@use '../common/mixins.scss' as *;
+
+// Overlay wrapper (the dark background)
+.long-dialog__wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    margin: 0;
+    z-index: 2000;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+// Dialog container
+@include b(dialog) {
+    position: relative;
+    margin: 15vh auto 50px;
+    background: var(--long-fill-color-blank);
+    border-radius: var(--long-border-radius-base);
+    box-shadow: var(--long-box-shadow-dark);
+    box-sizing: border-box;
+    width: 50%;
+    overflow: hidden;
+
+    @include when(fullscreen) {
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 0;
+        height: 100%;
+        overflow: auto;
+    }
+
+    @include e(header) {
+        padding: 20px;
+        padding-bottom: 15px;
+        margin-right: 16px;
+        word-break: break-all;
+    }
+
+    @include e(headerbtn) {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        padding: 0;
+        width: 32px;
+        height: 32px;
+        background: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        transition: var(--long-transition-all);
+        color: var(--long-text-color-regular);
+
+        &:hover {
+            color: var(--long-color-primary);
+            background-color: var(--long-color-primary-light-9);
+        }
+
+        @include e(close) {
+            color: inherit;
+        }
+    }
+
+    @include e(title) {
+        line-height: 24px;
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--long-text-color-primary);
+    }
+
+    @include e(body) {
+        padding: 25px 20px;
+        color: var(--long-text-color-regular);
+        font-size: 14px;
+        word-break: break-all;
+    }
+
+    @include e(footer) {
+        padding: 10px 20px 20px;
+        text-align: right;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
+    }
+
+    @include when(center) {
+        text-align: center;
+
+        @include e(body) {
+            text-align: initial;
+            padding: 25px 25px 30px;
+        }
+
+        @include e(footer) {
+            justify-content: center;
+        }
+    }
+
+    @include when(align-center) {
+        margin: auto;
+    }
+}
+
+.dialog-fade-enter-active {
+    animation: dialog-fade-in var(--long-transition-duration) var(--long-transition-function-ease-in-out-bezier);
+}
+
+.dialog-fade-leave-active {
+    animation: dialog-fade-out var(--long-transition-duration) var(--long-transition-function-ease-in-out-bezier);
+}
+
+@keyframes dialog-fade-in {
+    0% {
+        transform: scale(0.9) translateY(-20px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes dialog-fade-out {
+    0% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.9) translateY(-20px);
+        opacity: 0;
+    }
+}

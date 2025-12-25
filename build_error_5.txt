@@ -1,0 +1,30 @@
+
+> long-ui-monorepo@0.0.1 docs:build /Users/chenlong/Desktop/long-ui
+> pnpm -C docs build
+
+
+> @long-ui/docs@0.0.1 build /Users/chenlong/Desktop/long-ui/docs
+> vitepress build
+
+
+  vitepress v1.6.4
+
+- building client + server bundles...
+x Build failed in 278ms
+[31m✖[0m building client + server bundles...
+build error:
+[vite:vue] [plugin vite:vue] components/time-picker.md: Single file component can contain only one <script setup> element
+file: /Users/chenlong/Desktop/long-ui/docs/components/time-picker.md
+[vite:vue] [plugin vite:vue] components/time-picker.md: Single file component can contain only one <script setup> element
+file: /Users/chenlong/Desktop/long-ui/docs/components/time-picker.md
+SyntaxError: [plugin vite:vue] components/time-picker.md: Single file component can contain only one <script setup> element
+    at createDuplicateBlockError (/Users/chenlong/Desktop/long-ui/node_modules/.pnpm/@vue+compiler-sfc@3.5.25/node_modules/@vue/compiler-sfc/dist/compiler-sfc.cjs.js:1931:15)
+    at /Users/chenlong/Desktop/long-ui/node_modules/.pnpm/@vue+compiler-sfc@3.5.25/node_modules/@vue/compiler-sfc/dist/compiler-sfc.cjs.js:1851:21
+    at Array.forEach (<anonymous>)
+    at Object.parse$1 [as parse] (/Users/chenlong/Desktop/long-ui/node_modules/.pnpm/@vue+compiler-sfc@3.5.25/node_modules/@vue/compiler-sfc/dist/compiler-sfc.cjs.js:1809:16)
+    at createDescriptor (file:///Users/chenlong/Desktop/long-ui/node_modules/.pnpm/@vitejs+plugin-vue@5.2.4_vite@5.4.21_@types+node@22.19.2_sass@1.95.0__vue@3.5.25_typescript@5.9.3_/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+    at transformMain (file:///Users/chenlong/Desktop/long-ui/node_modules/.pnpm/@vitejs+plugin-vue@5.2.4_vite@5.4.21_@types+node@22.19.2_sass@1.95.0__vue@3.5.25_typescript@5.9.3_/node_modules/@vitejs/plugin-vue/dist/index.mjs:2421:34)
+    at Object.transform (file:///Users/chenlong/Desktop/long-ui/node_modules/.pnpm/@vitejs+plugin-vue@5.2.4_vite@5.4.21_@types+node@22.19.2_sass@1.95.0__vue@3.5.25_typescript@5.9.3_/node_modules/@vitejs/plugin-vue/dist/index.mjs:3053:16)
+    at file:///Users/chenlong/Desktop/long-ui/node_modules/.pnpm/rollup@4.53.3/node_modules/rollup/dist/es/shared/node-entry.js:22451:40
+ ELIFECYCLE  Command failed with exit code 1.
+ ELIFECYCLE  Command failed with exit code 1.

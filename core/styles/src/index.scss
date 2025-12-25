@@ -1,0 +1,108 @@
+@use './common/var.scss' as *;
+@use 'sass:map';
+
+// 必须在任何样式规则之前使用 @use
+@use './components/button.scss';
+@use './components/calendar.scss';
+@use './components/input.scss';
+@use './components/select.scss';
+@use './components/switch.scss';
+@use './components/radio.scss';
+@use './components/checkbox.scss';
+@use './components/input-number.scss';
+@use './components/icon.scss';
+@use './components/dialog.scss';
+@use './components/message.scss';
+@use './components/time-picker.scss';
+@use './components/form.scss';
+@use './components/table.scss';
+@use './dark/index';
+
+:root {
+    /* --- Colors --- */
+    --long-color-white: #ffffff;
+    --long-color-black: #000000;
+
+    --long-color-primary: #409eff;
+    --long-color-success: #67c23a;
+    --long-color-warning: #e6a23c;
+    --long-color-danger: #f56c6c;
+    --long-color-error: #f56c6c;
+    --long-color-info: #909399;
+
+    @for $i from 1 through 9 {
+        --long-color-primary-light-#{$i}: #{mix(#ffffff, #409eff, $i * 10%)};
+        --long-color-success-light-#{$i}: #{mix(#ffffff, #67c23a, $i * 10%)};
+        --long-color-warning-light-#{$i}: #{mix(#ffffff, #e6a23c, $i * 10%)};
+        --long-color-danger-light-#{$i}: #{mix(#ffffff, #f56c6c, $i * 10%)};
+        --long-color-info-light-#{$i}: #{mix(#ffffff, #909399, $i * 10%)};
+    }
+
+    --long-color-primary-dark-2: #{mix(#000000, #409eff, 20%)};
+
+    /* --- Text Colors --- */
+    --long-text-color-primary: #303133;
+    --long-text-color-regular: #606266;
+    --long-text-color-secondary: #909399;
+    --long-text-color-placeholder: #a8abb2;
+    --long-text-color-disabled: #c0c4cc;
+
+    /* --- Border --- */
+    --long-border-color: #dcdfe6;
+    --long-border-color-light: #e4e7ed;
+    --long-border-color-lighter: #ebeef5;
+    --long-border-color-extra-light: #f2f6fc;
+    --long-border-color-dark: #d4d7de;
+    --long-border-color-darker: #cdd0d6;
+
+    /* --- Fill --- */
+    --long-fill-color: #f0f2f5;
+    --long-fill-color-light: #f5f7fa;
+    --long-fill-color-lighter: #fafafa;
+    --long-fill-color-extra-light: #fafcff;
+    --long-fill-color-blank: #ffffff;
+
+    /* --- Typography --- */
+    --long-font-size-base: 14px;
+    --long-font-weight-primary: 500;
+
+    /* --- Border Radius --- */
+    --long-border-radius-base: 4px;
+    --long-border-radius-small: 2px;
+    --long-border-radius-round: 20px;
+    --long-border-radius-circle: 50%;
+
+    /* --- Sizes --- */
+    --long-component-size-large: 40px;
+    --long-component-size-default: 32px;
+    --long-component-size-small: 24px;
+
+    /* --- Shadows (Apex Level: Layered & Ambient) --- */
+    --long-box-shadow-level-1: 0 1px 2px rgba(0, 0, 0, 0.04);
+    --long-box-shadow-level-2: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --long-box-shadow-level-3: 0 12px 32px rgba(0, 0, 0, 0.12);
+
+    --long-box-shadow-primary-glow: 0 0 12px rgba(64, 158, 255, 0.24);
+
+    --long-box-shadow: var(--long-box-shadow-level-2);
+    --long-box-shadow-light: var(--long-box-shadow-level-1);
+    --long-box-shadow-dark: var(--long-box-shadow-level-3);
+
+    /* --- Micro Borders --- */
+    --long-border-width-fine: 1px;
+    --long-border-style-fine: solid;
+    --long-border-color-soft: rgba(0, 0, 0, 0.04);
+
+    /* --- Transitions --- */
+    --long-transition-duration-fast: 0.2s;
+    --long-transition-duration: 0.3s;
+    --long-transition-function-ease-in-out-bezier: cubic-bezier(0.645, 0.045, 0.355, 1);
+    --long-transition-all: all var(--long-transition-duration) var(--long-transition-function-ease-in-out-bezier);
+
+    /* --- Z-Index --- */
+    --long-index-normal: 1;
+    --long-index-top: 1000;
+    --long-index-popper: 2000;
+    --long-index-dialog: 3000;
+    --long-index-message: 4000;
+}

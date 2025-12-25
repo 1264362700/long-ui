@@ -1,0 +1,167 @@
+@use 'sass:map';
+@use '../common/var' as *;
+@use '../common/mixins.scss' as *;
+
+@include b(radio) {
+    color: var(--long-text-color-regular);
+    font-weight: var(--long-font-weight-primary);
+    line-height: 1;
+    position: relative;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    outline: none;
+    font-size: var(--long-font-size-base);
+    margin-right: 32px;
+    user-select: none;
+    transition: var(--long-transition-all);
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    @include e(input) {
+        white-space: nowrap;
+        cursor: pointer;
+        outline: none;
+        display: inline-flex;
+        position: relative;
+        vertical-align: middle;
+
+        @include when(checked) {
+            .#{$namespace}-radio__inner {
+                border-color: var(--long-color-primary);
+                background-color: var(--long-color-primary);
+
+                &::after {
+                    transform: translate(-50%, -50%) scale(1);
+                }
+            }
+        }
+
+        @include when(disabled) {
+            cursor: not-allowed;
+
+            .#{$namespace}-radio__inner {
+                background-color: var(--long-fill-color-light);
+                border-color: var(--long-border-color-light);
+                cursor: not-allowed;
+
+                &::after {
+                    background-color: var(--long-text-color-placeholder);
+                }
+            }
+
+            &+.#{$namespace}-radio__label {
+                color: var(--long-text-color-disabled);
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    @include e(inner) {
+        border: 1px solid var(--long-border-color);
+        border-radius: var(--long-border-radius-circle);
+        width: 14px;
+        height: 14px;
+        background-color: var(--long-fill-color-blank);
+        position: relative;
+        cursor: pointer;
+        display: inline-block;
+        box-sizing: border-box;
+        transition: var(--long-transition-all);
+
+        &:hover {
+            border-color: var(--long-color-primary);
+        }
+
+        &::after {
+            width: 4px;
+            height: 4px;
+            border-radius: 100%;
+            background-color: var(--long-color-white);
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.15s cubic-bezier(0.71, -0.46, 0.29, 1.46);
+        }
+    }
+
+    @include e(original) {
+        opacity: 0;
+        outline: none;
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0;
+    }
+
+    @include e(label) {
+        font-size: var(--long-font-size-base);
+        padding-left: 8px;
+    }
+
+    // Bordered Variant
+    @include when(bordered) {
+        padding: 0 15px;
+        height: var(--long-component-size-default);
+        border-radius: var(--long-border-radius-base);
+        border: 1px solid var(--long-border-color);
+        box-sizing: border-box;
+
+        &.is-checked {
+            border-color: var(--long-color-primary);
+            background-color: var(--long-color-primary-light-9);
+        }
+
+        &.is-disabled {
+            border-color: var(--long-border-color-lighter);
+            background-color: var(--long-fill-color-light);
+        }
+
+        &+.#{$namespace}-radio.is-bordered {
+            margin-left: 10px;
+        }
+    }
+
+    @include m(large) {
+        font-size: 16px;
+
+        &.is-bordered {
+            height: var(--long-component-size-large);
+            padding: 0 20px;
+        }
+
+        .#{$namespace}-radio__inner {
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    @include m(small) {
+        font-size: 12px;
+
+        &.is-bordered {
+            height: var(--long-component-size-small);
+            padding: 0 10px;
+        }
+
+        .#{$namespace}-radio__inner {
+            width: 12px;
+            height: 12px;
+        }
+    }
+}
+
+@include b(radio-group) {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 0;
+}

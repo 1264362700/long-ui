@@ -1,0 +1,42 @@
+{
+    "name": "@long-ui/components",
+    "version": "0.0.1",
+    "description": "Long UI components",
+    "license": "MIT",
+    "type": "module",
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "sideEffects": false,
+    "exports": {
+        ".": {
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.cjs",
+            "types": "./dist/index.d.ts"
+        },
+        "./button": {
+            "import": "./src/button/index.ts"
+        },
+        "./config-provider": {
+            "import": "./src/config-provider/index.ts"
+        }
+    },
+    "files": [
+        "dist",
+        "src"
+    ],
+    "scripts": {
+        "build": "unbuild"
+    },
+    "peerDependencies": {
+        "vue": "^3.5.0"
+    },
+    "dependencies": {
+        "@long-ui/hooks": "workspace:*",
+        "@long-ui/icons": "workspace:*",
+        "@long-ui/tokens": "workspace:*",
+        "@long-ui/utils": "workspace:*",
+        "async-validator": "^4.2.5",
+        "dayjs": "^1.11.10"
+    }
+}

@@ -1,0 +1,86 @@
+
+> long-ui-monorepo@0.0.1 docs:build /Users/chenlong/Desktop/long-ui
+> pnpm -C docs build
+
+
+> @long-ui/docs@0.0.1 build /Users/chenlong/Desktop/long-ui/docs
+> vitepress build
+
+
+  vitepress v1.6.4
+
+- building client + server bundles...
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+x Build failed in 1.86s
+[31m✖[0m building client + server bundles...
+build error:
+[vite:css] [sass] Undefined variable.
+  ╷
+6 │     @include set-component-css-var('switch', $switch);
+  │                                              ^^^^^^^
+  ╵
+  ../core/styles/src/components/switch.scss 6:46  @content
+  ../core/styles/src/common/mixins.scss 17:9      b()
+  ../core/styles/src/components/switch.scss 5:1   @use
+  ../core/styles/src/index.scss 9:1               root stylesheet
+file: /Users/chenlong/Desktop/long-ui/core/styles/src/index.scss
+
+Error: Undefined variable.
+  ╷
+6 │     @include set-component-css-var('switch', $switch);
+  │                                              ^^^^^^^
+  ╵
+  ../core/styles/src/components/switch.scss 6:46  @content
+  ../core/styles/src/common/mixins.scss 17:9      b()
+  ../core/styles/src/components/switch.scss 5:1   @use
+  ../core/styles/src/index.scss 9:1               root stylesheet
+
+[vite:css] [sass] Undefined variable.
+  ╷
+6 │     @include set-component-css-var('switch', $switch);
+  │                                              ^^^^^^^
+  ╵
+  ../core/styles/src/components/switch.scss 6:46  @content
+  ../core/styles/src/common/mixins.scss 17:9      b()
+  ../core/styles/src/components/switch.scss 5:1   @use
+  ../core/styles/src/index.scss 9:1               root stylesheet
+file: /Users/chenlong/Desktop/long-ui/core/styles/src/index.scss
+
+Error: Undefined variable.
+  ╷
+6 │     @include set-component-css-var('switch', $switch);
+  │                                              ^^^^^^^
+  ╵
+  ../core/styles/src/components/switch.scss 6:46  @content
+  ../core/styles/src/common/mixins.scss 17:9      b()
+  ../core/styles/src/components/switch.scss 5:1   @use
+  ../core/styles/src/index.scss 9:1               root stylesheet
+
+Error: Undefined variable.
+  ╷
+6 │     @include set-component-css-var('switch', $switch);
+  │                                              ^^^^^^^
+  ╵
+  ../core/styles/src/components/switch.scss 6:46  @content
+  ../core/styles/src/common/mixins.scss 17:9      b()
+  ../core/styles/src/components/switch.scss 5:1   @use
+  ../core/styles/src/index.scss 9:1               root stylesheet
+    at Object.wrapException (/Users/chenlong/Desktop/long-ui/node_modules/.pnpm/sass@1.95.0/node_modules/sass/sass.dart.js:2337:47)
+    at /Users/chenlong/Desktop/long-ui/node_modules/.pnpm/sass@1.95.0/node_modules/sass/sass.dart.js:90453:23
+    at _wrapJsFunctionForAsync_closure.$protected (/Users/chenlong/Desktop/long-ui/node_modules/.pnpm/sass@1.95.0/node_modules/sass/sass.dart.js:5005:15)
+    at _wrapJsFunctionForAsync_closure.call$2 (/Users/chenlong/Desktop/long-ui/node_modules/.pnpm/sass@1.95.0/node_modules/sass/sass.dart.js:38490:12)
+    at Object._asyncStartSync (/Users/chenlong/Desktop/long-ui/node_modules/.pnpm/sass@1.95.0/node_modules/sass/sass.dart.js:4969:20)
+    at _EvaluateVisitor2.visitVariableExpression$body$_EvaluateVisitor0 (/Users/chenlong/Desktop/long-ui/node_modules/.pnpm/sass@1.95.0/node_modules/sass/sass.dart.js:90459:16)
+    at _EvaluateVisitor2.visitVariableExpression$1 (/Users/chenlong/Desktop/long-ui/node_modules/.pnpm/sass@1.95.0/node_modules/sass/sass.dart.js:90433:19)
+    at VariableExpression0.accept$1$1 (/Users/chenlong/Desktop/long-ui/node_modules/.pnpm/sass@1.95.0/node_modules/sass/sass.dart.js:128037:22)
+    at VariableExpression0.accept$1 (/Users/chenlong/Desktop/long-ui/node_modules/.pnpm/sass@1.95.0/node_modules/sass/sass.dart.js:128040:19)
+    at /Users/chenlong/Desktop/long-ui/node_modules/.pnpm/sass@1.95.0/node_modules/sass/sass.dart.js:92127:31
+ ELIFECYCLE  Command failed with exit code 1.
+ ELIFECYCLE  Command failed with exit code 1.

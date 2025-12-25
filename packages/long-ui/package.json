@@ -1,0 +1,35 @@
+{
+    "name": "long-ui",
+    "version": "0.0.1",
+    "description": "A modern Vue 3 component library",
+    "license": "MIT",
+    "type": "module",
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.cjs",
+            "types": "./dist/index.d.ts"
+        },
+        "./dist/index.css": "./dist/index.css"
+    },
+    "files": [
+        "dist",
+        "src"
+    ],
+    "scripts": {
+        "build": "unbuild"
+    },
+    "peerDependencies": {
+        "vue": "^3.5.0"
+    },
+    "dependencies": {
+        "@long-ui/components": "workspace:*",
+        "@long-ui/hooks": "workspace:*",
+        "@long-ui/icons": "workspace:*",
+        "@long-ui/styles": "workspace:*",
+        "@long-ui/utils": "workspace:*"
+    }
+}

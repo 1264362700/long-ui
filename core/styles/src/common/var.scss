@@ -1,0 +1,74 @@
+@use 'sass:map';
+
+// 基础变量映射，使用 CSS 变量确保动态响应
+$colors: (
+  'primary': ('base': var(--long-color-primary)),
+  'success': ('base': var(--long-color-success)),
+  'warning': ('base': var(--long-color-warning)),
+  'danger': ('base': var(--long-color-danger)),
+  'error': ('base': var(--long-color-error)),
+  'info': ('base': var(--long-color-info)),
+  'white': var(--long-color-white),
+  'black': var(--long-color-black),
+  ) !default;
+
+$text-color: (
+  'primary': var(--long-text-color-primary),
+  'regular': var(--long-text-color-regular),
+  'secondary': var(--long-text-color-secondary),
+  'placeholder': var(--long-text-color-placeholder),
+  'disabled': var(--long-text-color-disabled),
+  ) !default;
+
+$border-color: (
+  'base': var(--long-border-color),
+  'light': var(--long-border-color-light),
+  'lighter': var(--long-border-color-lighter),
+  'extra-light': var(--long-border-color-extra-light),
+  'dark': var(--long-border-color-dark),
+  'darker': var(--long-border-color-darker),
+  ) !default;
+
+$fill-color: (
+  'base': var(--long-fill-color),
+  'light': var(--long-fill-color-light),
+  'lighter': var(--long-fill-color-lighter),
+  'extra-light': var(--long-fill-color-extra-light),
+  'blank': var(--long-fill-color-blank),
+  ) !default;
+
+$font-size: (
+  'extra-large': 20px,
+  'large': 18px,
+  'medium': 16px,
+  'base': var(--long-font-size-base),
+  'small': 13px,
+  'extra-small': 12px,
+  ) !default;
+
+// 命名空间
+$namespace: 'long' !default;
+$element-separator: '__' !default;
+$modifier-separator: '--' !default;
+$state-prefix: 'is-' !default;
+
+// 组件级变量初始映射 (供 mixins 使用)
+$input: (
+  'text-color': var(--long-text-color-regular),
+  'border-color': var(--long-border-color),
+  'border-radius': var(--long-border-radius-base),
+  'bg-color': var(--long-fill-color-blank),
+  'height': var(--long-component-size-default),
+  ) !default;
+
+$radio: (
+  'font-size': 14px,
+  'input-height': 14px,
+  'input-width': 14px,
+  ) !default;
+
+$checkbox: (
+  'font-size': 14px,
+  'input-height': 14px,
+  'input-width': 14px,
+  ) !default;

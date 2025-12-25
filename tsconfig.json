@@ -1,0 +1,90 @@
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "strict": true,
+        "jsx": "preserve",
+        "jsxImportSource": "vue",
+        "lib": [
+            "ES2022",
+            "DOM",
+            "DOM.Iterable"
+        ],
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "declaration": true,
+        "declarationMap": true,
+        "sourceMap": true,
+        "baseUrl": ".",
+        "paths": {
+            "@long-ui/components": [
+                "packages/components/src"
+            ],
+            "@long-ui/components/*": [
+                "packages/components/src/*"
+            ],
+            "@long-ui/utils": [
+                "core/utils/src"
+            ],
+            "@long-ui/utils/*": [
+                "core/utils/src/*"
+            ],
+            "@long-ui/hooks": [
+                "core/hooks/src"
+            ],
+            "@long-ui/hooks/*": [
+                "core/hooks/src/*"
+            ],
+            "@long-ui/styles": [
+                "core/styles/src"
+            ],
+            "@long-ui/styles/*": [
+                "core/styles/src/*"
+            ],
+            "@long-ui/icons": [
+                "core/icons/src"
+            ],
+            "@long-ui/icons/*": [
+                "core/icons/src/*"
+            ],
+            "@long-ui/tokens": [
+                "core/tokens/src"
+            ],
+            "@long-ui/tokens/*": [
+                "core/tokens/src/*"
+            ],
+            "long-ui": [
+                "packages/long-ui/src"
+            ]
+        },
+        "types": [
+            "node",
+            "vitest/globals",
+            "vite/client"
+        ]
+    },
+    "include": [
+        "packages/**/*.ts",
+        "packages/**/*.vue",
+        "packages/**/*.d.ts",
+        "core/**/*.ts",
+        "core/**/*.vue",
+        "play/**/*.ts",
+        "play/**/*.vue",
+        "build/**/*.ts",
+        "typings/**/*.d.ts",
+        "docs/**/*.ts",
+        "docs/**/*.vue"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/dist",
+        "**/*.test.ts"
+    ]
+}

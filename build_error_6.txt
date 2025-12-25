@@ -1,0 +1,18 @@
+
+> long-ui-monorepo@0.0.1 docs:build /Users/chenlong/Desktop/long-ui
+> pnpm -C docs build
+
+
+> @long-ui/docs@0.0.1 build /Users/chenlong/Desktop/long-ui/docs
+> vitepress build
+
+
+  vitepress v1.6.4
+
+- building client + server bundles...
+The glob option "as" has been deprecated in favour of "query". Please update `as: 'raw'` to `query: '?raw', import: 'default'`.
+The glob option "as" has been deprecated in favour of "query". Please update `as: 'raw'` to `query: '?raw', import: 'default'`.
+[32m✓[0m building client + server bundles...
+- rendering pages...
+[32m✓[0m rendering pages...
+build complete in 9.69s.

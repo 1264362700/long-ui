@@ -1,0 +1,197 @@
+@use 'sass:map';
+@use '../common/var' as *;
+@use '../common/mixins.scss' as *;
+
+@include b(input-number) {
+    position: relative;
+    display: inline-flex;
+    width: 150px;
+    height: var(--long-component-size-default);
+    line-height: var(--long-component-size-default);
+    align-items: center;
+    vertical-align: middle;
+
+    @include e(decrease) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 32px;
+        height: 100%;
+        font-size: 14px;
+        box-sizing: border-box;
+        border: 1px solid var(--long-border-color);
+        background: var(--long-fill-color-light);
+        color: var(--long-text-color-regular);
+        cursor: pointer;
+        border-radius: var(--long-border-radius-base) 0 0 var(--long-border-radius-base);
+        border-right: none;
+        transition: var(--long-transition-all);
+        user-select: none;
+
+        &:hover:not(.is-disabled) {
+            color: var(--long-color-primary);
+            border-color: var(--long-color-primary);
+            z-index: 1;
+        }
+
+        @include when(disabled) {
+            cursor: not-allowed;
+            color: var(--long-text-color-disabled);
+            background-color: var(--long-fill-color-lighter);
+        }
+    }
+
+    @include e(increase) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 32px;
+        height: 100%;
+        font-size: 14px;
+        box-sizing: border-box;
+        border: 1px solid var(--long-border-color);
+        background: var(--long-fill-color-light);
+        color: var(--long-text-color-regular);
+        cursor: pointer;
+        border-radius: 0 var(--long-border-radius-base) var(--long-border-radius-base) 0;
+        border-left: none;
+        transition: var(--long-transition-all);
+        user-select: none;
+
+        &:hover:not(.is-disabled) {
+            color: var(--long-color-primary);
+            border-color: var(--long-color-primary);
+            z-index: 1;
+        }
+
+        @include when(disabled) {
+            cursor: not-allowed;
+            color: var(--long-text-color-disabled);
+            background-color: var(--long-fill-color-lighter);
+        }
+    }
+
+    @include e(wrapper) {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+
+    @include e(input) {
+        width: 100%;
+        height: 100%;
+        line-height: 1;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        text-align: center;
+        border: 1px solid var(--long-border-color);
+        border-radius: 0;
+        outline: none;
+        color: var(--long-text-color-regular);
+        background-color: var(--long-fill-color-blank);
+        transition: var(--long-transition-all);
+        font-size: var(--long-font-size-base);
+
+        &:hover:not([disabled]) {
+            border-color: var(--long-color-primary-light-5);
+            z-index: 1;
+        }
+
+        &:focus:not([disabled]) {
+            border-color: var(--long-color-primary);
+            box-shadow: 0 0 0 2px var(--long-color-primary-light-8);
+            z-index: 1;
+        }
+
+        &[disabled] {
+            cursor: not-allowed;
+            background-color: var(--long-fill-color-light);
+            color: var(--long-text-color-disabled);
+            border-color: var(--long-border-color-light);
+        }
+    }
+
+    @include when(disabled) {
+        cursor: not-allowed;
+    }
+
+    @include when(without-controls) {
+        @include e(input) {
+            border-radius: var(--long-border-radius-base);
+            text-align: left;
+            padding: 0 12px;
+        }
+    }
+
+    @include when(controls-right) {
+        @include e(decrease) {
+            border-radius: 0 0 var(--long-border-radius-base) 0;
+            border-left: 1px solid var(--long-border-color);
+            border-top: none;
+            border-right: none;
+            border-bottom: none;
+            position: absolute;
+            right: 1px;
+            bottom: 1px;
+            width: 30px;
+            height: calc(50% - 1px);
+            z-index: 2;
+        }
+
+        @include e(increase) {
+            border-radius: 0 var(--long-border-radius-base) 0 0;
+            border-left: 1px solid var(--long-border-color);
+            border-bottom: 1px solid var(--long-border-color);
+            border-right: none;
+            border-top: none;
+            position: absolute;
+            right: 1px;
+            top: 1px;
+            width: 30px;
+            height: calc(50% - 1px);
+            z-index: 2;
+        }
+
+        @include e(input) {
+            border-radius: var(--long-border-radius-base);
+            padding-right: 40px;
+            text-align: left;
+            padding-left: 12px;
+        }
+    }
+
+    @include m(large) {
+        width: 180px;
+        height: var(--long-component-size-large);
+        line-height: var(--long-component-size-large);
+
+        @include e((decrease, increase)) {
+            width: 40px;
+        }
+
+        &.is-controls-right {
+            @include e((decrease, increase)) {
+                width: 32px;
+            }
+        }
+    }
+
+    @include m(small) {
+        width: 120px;
+        height: var(--long-component-size-small);
+        line-height: var(--long-component-size-small);
+
+        @include e((decrease, increase)) {
+            width: 24px;
+        }
+
+        &.is-controls-right {
+            @include e((decrease, increase)) {
+                width: 20px;
+            }
+        }
+    }
+}

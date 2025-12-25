@@ -1,0 +1,102 @@
+@use '../common/var' as *;
+@use '../common/mixins.scss' as *;
+
+@include b(message) {
+    width: fit-content;
+    max-width: calc(100% - 32px);
+    box-sizing: border-box;
+    border-radius: var(--long-border-radius-base);
+    border: 1px solid var(--long-border-color-lighter);
+    position: fixed;
+    left: 50%;
+    top: 20px;
+    transform: translateX(-50%);
+    background-color: var(--long-fill-color-blank);
+    transition: opacity 0.3s, transform 0.4s, top 0.4s;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    z-index: var(--long-index-message);
+    box-shadow: var(--long-box-shadow-light);
+
+    @include m(success) {
+        background-color: var(--long-color-success-light-9);
+        border-color: var(--long-color-success-light-8);
+        color: var(--long-color-success);
+
+        @include e(content) {
+            color: var(--long-color-success);
+        }
+    }
+
+    @include m(warning) {
+        background-color: var(--long-color-warning-light-9);
+        border-color: var(--long-color-warning-light-8);
+        color: var(--long-color-warning);
+
+        @include e(content) {
+            color: var(--long-color-warning);
+        }
+    }
+
+    @include m(info) {
+        background-color: var(--long-fill-color-blank);
+        border-color: var(--long-border-color-light);
+        color: var(--long-text-color-regular);
+
+        @include e(content) {
+            color: var(--long-text-color-regular);
+        }
+    }
+
+    @include m(error) {
+        background-color: var(--long-color-danger-light-9);
+        border-color: var(--long-color-danger-light-8);
+        color: var(--long-color-danger);
+
+        @include e(content) {
+            color: var(--long-color-danger);
+        }
+    }
+
+    @include e(icon) {
+        margin-right: 12px;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+    }
+
+    @include e(content) {
+        padding: 0;
+        font-size: 14px;
+        line-height: 1;
+        font-weight: 500;
+    }
+
+    @include e(closeBtn) {
+        margin-left: 12px;
+        cursor: pointer;
+        color: var(--long-text-color-placeholder);
+        font-size: 16px;
+        transition: var(--long-transition-all);
+
+        &:hover {
+            color: var(--long-text-color-secondary);
+        }
+    }
+
+    @include when(center) {
+        justify-content: center;
+    }
+}
+
+.long-message-fade-enter-active,
+.long-message-fade-leave-active {
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.long-message-fade-enter-from,
+.long-message-fade-leave-to {
+    opacity: 0;
+    transform: translate(-50%, -100%);
+}

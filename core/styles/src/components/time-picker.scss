@@ -1,0 +1,105 @@
+@use 'sass:map';
+@use '../common/var' as *;
+@use '../common/mixins.scss' as *;
+
+@include b(time-picker) {
+    display: inline-block;
+    position: relative;
+    width: 220px;
+    vertical-align: middle;
+
+    @include e(dropdown) {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        z-index: var(--long-index-popper);
+        background-color: var(--long-fill-color-blank);
+        border: 1px solid var(--long-border-color-light);
+        border-radius: var(--long-border-radius-base);
+        box-shadow: var(--long-box-shadow-level-3);
+        overflow: hidden;
+        width: 180px;
+
+        // Apex Style: Micro-border
+        &::after {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            border-radius: inherit;
+            pointer-events: none;
+            box-shadow: inset 0 0 0 1px var(--long-border-color-soft);
+            opacity: 0.3;
+        }
+    }
+
+    @include e(panel) {
+        display: flex;
+        height: 192px; // 32px * 6
+    }
+
+    @include e(column) {
+        flex: 1;
+        overflow-y: auto;
+        overflow-x: hidden;
+        border-left: 1px solid var(--long-border-color-lighter);
+        scrollbar-width: none; // Firefox
+
+        &::-webkit-scrollbar {
+            display: none; // Chrome/Safari
+        }
+
+        &:first-child {
+            border-left: none;
+        }
+
+        // Pseudo-mask for scroll
+        position: relative;
+        mask-image: linear-gradient(to bottom,
+            transparent,
+            black 20%,
+            black 80%,
+            transparent);
+    }
+
+    @include e(item) {
+        height: 32px;
+        line-height: 32px;
+        text-align: center;
+        font-size: 14px;
+        color: var(--long-text-color-regular);
+        cursor: pointer;
+        transition: var(--long-transition-all);
+        user-select: none;
+
+        &:hover {
+            background-color: var(--long-fill-color-light);
+            color: var(--long-color-primary);
+        }
+
+        &.is-active {
+            color: var(--long-color-primary);
+            font-weight: 700;
+            background-color: var(--long-color-primary-light-9);
+        }
+    }
+
+    @include when(disabled) {
+        cursor: not-allowed;
+    }
+}
+
+// Fade transition
+.long-zoom-in-top-enter-active,
+.long-zoom-in-top-leave-active {
+    transition: opacity 0.3s, transform 0.3s;
+    transform-origin: center top;
+}
+
+.long-zoom-in-top-enter-from,
+.long-zoom-in-top-leave-to {
+    opacity: 0;
+    transform: scaleY(0);
+}

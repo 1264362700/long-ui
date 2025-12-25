@@ -1,0 +1,14 @@
+// ============================================================
+// Reset Styles
+// ============================================================
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+// 滚动锁定
+.long-popup-parent--hidden {
+    overflow: hidden !important;
+}

@@ -1,0 +1,70 @@
+{
+  "name": "long-ui-monorepo",
+  "version": "0.0.1",
+  "private": true,
+  "packageManager": "pnpm@9.14.2",
+  "description": "A modern Vue 3 component library",
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm -C play dev",
+    "build": "pnpm run build:utils && pnpm run build:hooks && pnpm run build:icons && pnpm run build:styles && pnpm run build:components",
+    "build:components": "pnpm -C build run build:components",
+    "build:utils": "pnpm -C build run build:utils",
+    "build:hooks": "pnpm -C build run build:hooks",
+    "build:icons": "pnpm -C build run build:icons",
+    "build:styles": "pnpm -C build run build:styles",
+    "test": "vitest",
+    "test:coverage": "vitest --coverage",
+    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
+    "format": "prettier --write \"**/*.{js,ts,vue,json,md,scss}\"",
+    "typecheck": "vue-tsc --noEmit",
+    "docs:dev": "pnpm -C docs dev",
+    "docs:build": "pnpm -C docs build",
+    "prepare": "husky",
+    "clean": "rimraf dist node_modules **/node_modules **/dist"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@rushstack/eslint-patch": "^1.15.0",
+    "@types/node": "^22.10.1",
+    "@typescript-eslint/eslint-plugin": "^8.17.0",
+    "@typescript-eslint/parser": "^8.17.0",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vitejs/plugin-vue-jsx": "^4.1.1",
+    "@vue/test-utils": "^2.4.6",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-vue": "^9.31.0",
+    "husky": "^9.1.7",
+    "jsdom": "^22.1.0",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.4.2",
+    "rimraf": "^6.0.1",
+    "sass": "^1.82.0",
+    "typescript": "^5.7.2",
+    "unbuild": "^2.0.0",
+    "vite": "^6.0.3",
+    "vitest": "^2.1.8",
+    "vue-tsc": "^2.1.10"
+  },
+  "dependencies": {
+    "vue": "^3.5.13"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.0"
+  },
+  "engines": {
+    "node": ">=22.0.0",
+    "pnpm": ">=7.0.0"
+  },
+  "lint-staged": {
+    "*.{js,ts,vue}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,scss}": [
+      "prettier --write"
+    ]
+  }
+}

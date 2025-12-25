@@ -1,0 +1,62 @@
+import { LongButton } from './button'
+import { LongCalendar } from './calendar'
+import { LongConfigProvider } from './config-provider'
+import { LongInput } from './input'
+import { LongSelect } from './select'
+import { LongSwitch } from './switch'
+import { LongRadio, LongRadioGroup } from './radio'
+import { LongCheckbox, LongCheckboxGroup } from './checkbox'
+import { LongInputNumber } from './input-number'
+import { LongIcon } from './icon'
+import { LongDialog } from './dialog'
+import { LongMessage } from './message'
+import { LongTimePicker } from './time-picker'
+import { LongForm } from './form'
+import { LongFormItem } from './form-item'
+import { LongTable } from './table'
+import { LongTableColumn } from './table-column'
+import type { App } from 'vue'
+
+const components = [
+    LongButton,
+    LongCalendar,
+    LongConfigProvider,
+    LongInput,
+    LongSelect,
+    LongSwitch,
+    LongRadio,
+    LongRadioGroup,
+    LongCheckbox,
+    LongCheckboxGroup,
+    LongInputNumber,
+    LongIcon,
+    LongDialog,
+    LongMessage,
+    LongTimePicker,
+    LongForm,
+    LongFormItem,
+    LongTable,
+    LongTableColumn
+]
+
+export default {
+    install(app: App) {
+        components.forEach((component) => {
+            app.use(component)
+        })
+    }
+}
+
+export * from './button'
+export * from './calendar'
+export * from './config-provider'
+export * from './input'
+export * from './select'
+export * from './switch'
+export * from './radio'
+export * from './checkbox'
+export * from './input-number'
+export * from './icon'
+export * from './dialog'
+export * from './message'
+export * from './time-picker'

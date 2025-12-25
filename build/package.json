@@ -1,0 +1,23 @@
+{
+    "name": "@long-ui/build",
+    "version": "0.0.1",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build:components": "tsx scripts/build-components.ts",
+        "build:utils": "tsx scripts/build-utils.ts",
+        "build:hooks": "tsx scripts/build-hooks.ts",
+        "build:icons": "tsx scripts/build-icons.ts",
+        "build:styles": "tsx scripts/build-styles.ts",
+        "build:full": "tsx scripts/build-full.ts"
+    },
+    "devDependencies": {
+        "@types/node": "^22.10.1",
+        "fast-glob": "^3.3.2",
+        "sass": "^1.82.0",
+        "tsx": "^4.19.2",
+        "typescript": "^5.7.2",
+        "unbuild": "^2.0.0",
+        "vite": "^6.0.3"
+    }
+}

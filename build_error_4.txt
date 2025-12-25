@@ -1,0 +1,76 @@
+
+> long-ui-monorepo@0.0.1 docs:build /Users/chenlong/Desktop/long-ui
+> pnpm -C docs build
+
+
+> @long-ui/docs@0.0.1 build /Users/chenlong/Desktop/long-ui/docs
+> vitepress build
+
+
+  vitepress v1.6.4
+
+- building client + server bundles...
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+x Build failed in 2.08s
+[31m✖[0m building client + server bundles...
+build error:
+[vite:css] [sass] expected ";".
+    ╷
+176 │             @include e(decrease), @include e(increase) {
+    │                                 ^
+    ╵
+  ../core/styles/src/components/input-number.scss 176:33  @use
+  ../core/styles/src/index.scss 12:1                      root stylesheet
+file: /Users/chenlong/Desktop/long-ui/core/styles/src/index.scss
+
+Error: expected ";".
+    ╷
+176 │             @include e(decrease), @include e(increase) {
+    │                                 ^
+    ╵
+  ../core/styles/src/components/input-number.scss 176:33  @use
+  ../core/styles/src/index.scss 12:1                      root stylesheet
+
+[vite:css] [sass] expected ";".
+    ╷
+176 │             @include e(decrease), @include e(increase) {
+    │                                 ^
+    ╵
+  ../core/styles/src/components/input-number.scss 176:33  @use
+  ../core/styles/src/index.scss 12:1                      root stylesheet
+file: /Users/chenlong/Desktop/long-ui/core/styles/src/index.scss
+
+Error: expected ";".
+    ╷
+176 │             @include e(decrease), @include e(increase) {
+    │                                 ^
+    ╵
+  ../core/styles/src/components/input-number.scss 176:33  @use
+  ../core/styles/src/index.scss 12:1                      root stylesheet
+
+Error: expected ";".
+    ╷
+176 │             @include e(decrease), @include e(increase) {
+    │                                 ^
+    ╵
+  ../core/styles/src/components/input-number.scss 176:33  @use
+  ../core/styles/src/index.scss 12:1                      root stylesheet
+    at Object.wrapException (/Users/chenlong/Desktop/long-ui/node_modules/.pnpm/sass@1.95.0/node_modules/sass/sass.dart.js:2337:47)
+    at SpanScanner.error$3$length$position (/Users/chenlong/Desktop/long-ui/node_modules/.pnpm/sass@1.95.0/node_modules/sass/sass.dart.js:86419:15)
+    at SpanScanner._fail$1 (/Users/chenlong/Desktop/long-ui/node_modules/.pnpm/sass@1.95.0/node_modules/sass/sass.dart.js:86558:12)
+    at SpanScanner.expectChar$2$name (/Users/chenlong/Desktop/long-ui/node_modules/.pnpm/sass@1.95.0/node_modules/sass/sass.dart.js:86500:12)
+    at SpanScanner.expectChar$1 (/Users/chenlong/Desktop/long-ui/node_modules/.pnpm/sass@1.95.0/node_modules/sass/sass.dart.js:86503:19)
+    at ScssParser0.expectStatementSeparator$1 (/Users/chenlong/Desktop/long-ui/node_modules/.pnpm/sass@1.95.0/node_modules/sass/sass.dart.js:117879:10)
+    at ScssParser0.expectStatementSeparator$0 (/Users/chenlong/Desktop/long-ui/node_modules/.pnpm/sass@1.95.0/node_modules/sass/sass.dart.js:117882:19)
+    at ScssParser0._stylesheet0$_includeRule$1 (/Users/chenlong/Desktop/long-ui/node_modules/.pnpm/sass@1.95.0/node_modules/sass/sass.dart.js:123452:15)
+    at ScssParser0.atRule$2$root (/Users/chenlong/Desktop/long-ui/node_modules/.pnpm/sass@1.95.0/node_modules/sass/sass.dart.js:122840:24)
+    at ScssParser0._stylesheet0$_statement$1$root (/Users/chenlong/Desktop/long-ui/node_modules/.pnpm/sass@1.95.0/node_modules/sass/sass.dart.js:122461:22)
+ ELIFECYCLE  Command failed with exit code 1.
+ ELIFECYCLE  Command failed with exit code 1.

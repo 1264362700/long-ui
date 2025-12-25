@@ -1,0 +1,211 @@
+@use 'sass:map';
+@use '../common/var' as *;
+@use '../common/mixins.scss' as *;
+
+@include b(checkbox) {
+    color: var(--long-text-color-regular);
+    font-weight: var(--long-font-weight-primary);
+    font-size: var(--long-font-size-base);
+    position: relative;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    user-select: none;
+    margin-right: 16px;
+    transition: var(--long-transition-all);
+
+    &:last-of-type {
+        margin-right: 0;
+    }
+
+    @include e(input) {
+        white-space: nowrap;
+        cursor: pointer;
+        outline: none;
+        display: inline-flex;
+        position: relative;
+        line-height: 1;
+
+        @include when(disabled) {
+            cursor: not-allowed;
+
+            .#{$namespace}-checkbox__inner {
+                background-color: var(--long-fill-color-light);
+                border-color: var(--long-border-color-light);
+                cursor: not-allowed;
+
+                &::after {
+                    border-color: var(--long-text-color-placeholder);
+                }
+            }
+
+            &+.#{$namespace}-checkbox__label {
+                color: var(--long-text-color-disabled);
+                cursor: not-allowed;
+            }
+        }
+
+        @include when(checked) {
+            .#{$namespace}-checkbox__inner {
+                background-color: var(--long-color-primary);
+                border-color: var(--long-color-primary);
+
+                &::after {
+                    transform: rotate(45deg) scaleY(1);
+                }
+            }
+        }
+
+        @include when(indeterminate) {
+            .#{$namespace}-checkbox__inner {
+                background-color: var(--long-color-primary);
+                border-color: var(--long-color-primary);
+
+                &::after {
+                    display: none;
+                }
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    background-color: var(--long-color-white);
+                    height: 2px;
+                    width: 8px;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+        }
+    }
+
+    @include e(inner) {
+        display: inline-block;
+        position: relative;
+        border: 1px solid var(--long-border-color);
+        border-radius: var(--long-border-radius-small);
+        box-sizing: border-box;
+        width: 14px;
+        height: 14px;
+        background-color: var(--long-fill-color-blank);
+        z-index: 1;
+        transition: var(--long-transition-all);
+
+        &:hover {
+            border-color: var(--long-color-primary);
+        }
+
+        &::after {
+            box-sizing: content-box;
+            content: '';
+            border: 2px solid var(--long-color-white);
+            border-left: 0;
+            border-top: 0;
+            height: 7px;
+            left: 4px;
+            position: absolute;
+            top: 1px;
+            transform: rotate(45deg) scaleY(0);
+            width: 3px;
+            transition: transform 0.15s cubic-bezier(0.71, -0.46, 0.29, 1.46) 0.05s;
+            transform-origin: center;
+        }
+    }
+
+    @include e(original) {
+        opacity: 0;
+        outline: none;
+        position: absolute;
+        margin: 0;
+        width: 0;
+        height: 0;
+        z-index: -1;
+    }
+
+    @include e(label) {
+        display: inline-block;
+        padding-left: 8px;
+        line-height: 1;
+        vertical-align: middle;
+        font-size: var(--long-font-size-base);
+    }
+
+    @include when(bordered) {
+        padding: 0 15px;
+        height: var(--long-component-size-default);
+        border-radius: var(--long-border-radius-base);
+        border: 1px solid var(--long-border-color);
+        box-sizing: border-box;
+
+        &.is-checked {
+            border-color: var(--long-color-primary);
+            background-color: var(--long-color-primary-light-9);
+        }
+
+        &.is-disabled {
+            border-color: var(--long-border-color-lighter);
+            background-color: var(--long-fill-color-light);
+        }
+
+        &+.#{$namespace}-checkbox.is-bordered {
+            margin-left: 10px;
+        }
+    }
+
+    @include m(large) {
+        font-size: 16px;
+
+        @include e(label) {
+            line-height: var(--long-component-size-large);
+        }
+
+        &.is-bordered {
+            height: var(--long-component-size-large);
+            padding: 0 20px;
+        }
+
+        .#{$namespace}-checkbox__inner {
+            width: 16px;
+            height: 16px;
+
+            &::after {
+                left: 5px;
+                top: 2px;
+            }
+        }
+    }
+
+    @include m(small) {
+        font-size: 12px;
+
+        @include e(label) {
+            line-height: var(--long-component-size-small);
+        }
+
+        &.is-bordered {
+            height: var(--long-component-size-small);
+            padding: 0 10px;
+        }
+
+        .#{$namespace}-checkbox__inner {
+            width: 12px;
+            height: 12px;
+
+            &::after {
+                left: 3px;
+                top: 1px;
+                height: 6px;
+                width: 2px;
+            }
+        }
+    }
+}
+
+@include b(checkbox-group) {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 0;
+}

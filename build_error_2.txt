@@ -1,0 +1,148 @@
+
+> long-ui-monorepo@0.0.1 docs:build /Users/chenlong/Desktop/long-ui
+> pnpm -C docs build
+
+
+> @long-ui/docs@0.0.1 build /Users/chenlong/Desktop/long-ui/docs
+> vitepress build
+
+
+  vitepress v1.6.4
+
+- building client + server bundles...
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.mix instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+31 │         --long-color-primary-light-#{$i}: #{mix(#ffffff, #409eff, $i * 10%)};
+   │                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    ../core/styles/src/index.scss 31:45  root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.mix instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+32 │         --long-color-success-light-#{$i}: #{mix(#ffffff, #67c23a, $i * 10%)};
+   │                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    ../core/styles/src/index.scss 32:45  root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.mix instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+33 │         --long-color-warning-light-#{$i}: #{mix(#ffffff, #e6a23c, $i * 10%)};
+   │                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    ../core/styles/src/index.scss 33:45  root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.mix instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+34 │         --long-color-danger-light-#{$i}: #{mix(#ffffff, #f56c6c, $i * 10%)};
+   │                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    ../core/styles/src/index.scss 34:44  root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.mix instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+35 │         --long-color-info-light-#{$i}: #{mix(#ffffff, #909399, $i * 10%)};
+   │                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    ../core/styles/src/index.scss 35:42  root stylesheet
+
+WARNING: 1 repetitive deprecation warnings omitted.
+
+The glob option "as" has been deprecated in favour of "query". Please update `as: 'raw'` to `query: '?raw', import: 'default'`.
+The glob option "as" has been deprecated in favour of "query". Please update `as: 'raw'` to `query: '?raw', import: 'default'`.
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+
+More info: https://sass-lang.com/d/legacy-js-api
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.mix instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+31 │         --long-color-primary-light-#{$i}: #{mix(#ffffff, #409eff, $i * 10%)};
+   │                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    ../core/styles/src/index.scss 31:45  root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.mix instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+32 │         --long-color-success-light-#{$i}: #{mix(#ffffff, #67c23a, $i * 10%)};
+   │                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    ../core/styles/src/index.scss 32:45  root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.mix instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+33 │         --long-color-warning-light-#{$i}: #{mix(#ffffff, #e6a23c, $i * 10%)};
+   │                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    ../core/styles/src/index.scss 33:45  root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.mix instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+34 │         --long-color-danger-light-#{$i}: #{mix(#ffffff, #f56c6c, $i * 10%)};
+   │                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    ../core/styles/src/index.scss 34:44  root stylesheet
+
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.mix instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+35 │         --long-color-info-light-#{$i}: #{mix(#ffffff, #909399, $i * 10%)};
+   │                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    ../core/styles/src/index.scss 35:42  root stylesheet
+
+WARNING: 1 repetitive deprecation warnings omitted.
+
+[32m✓[0m building client + server bundles...
+- rendering pages...
+[32m✓[0m rendering pages...
+build complete in 9.15s.

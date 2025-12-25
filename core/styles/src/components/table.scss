@@ -1,0 +1,101 @@
+@use 'sass:map';
+@use '../common/var' as *;
+@use '../common/mixins.scss' as *;
+
+@include b(table) {
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    flex: 1;
+    width: 100%;
+    max-width: 100%;
+    background-color: var(--long-fill-color-blank);
+    font-size: 14px;
+    color: var(--long-text-color-regular);
+
+    @include e(header-wrapper) {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    @include e(body-wrapper) {
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        position: relative;
+    }
+
+    @include e(header) {
+        table-layout: fixed;
+        border-collapse: separate;
+        width: 100%;
+    }
+
+    @include e(body) {
+        table-layout: fixed;
+        border-collapse: separate;
+        width: 100%;
+    }
+
+    // Cells
+    th,
+    td {
+        padding: 12px 0;
+        min-width: 0;
+        box-sizing: border-box;
+        text-overflow: ellipsis;
+        vertical-align: middle;
+        position: relative;
+        text-align: left;
+        border-bottom: 1px solid var(--long-border-color-lighter);
+    }
+
+    th {
+        font-weight: 600;
+        color: var(--long-text-color-primary);
+        background-color: var(--long-fill-color-light); // Mute bg
+        user-select: none;
+    }
+
+    @include e(cell) {
+        box-sizing: border-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+        word-break: break-all;
+        line-height: 23px;
+        padding: 0 12px;
+    }
+
+    // Modifiers
+    @include when(stripe) {
+        @include e(body) {
+            tr:nth-child(2n) {
+                td {
+                    background-color: var(--long-fill-color-lighter);
+                }
+            }
+        }
+    }
+
+    @include when(border) {
+        border: 1px solid var(--long-border-color-lighter);
+
+        @include e(cell) {
+            border-right: 1px solid var(--long-border-color-lighter);
+        }
+
+        td,
+        th {
+            border-bottom: 1px solid var(--long-border-color-lighter);
+
+            &:last-child {
+                border-right: none;
+            }
+        }
+    }
+
+    .hidden-columns {
+        display: none;
+    }
+}
