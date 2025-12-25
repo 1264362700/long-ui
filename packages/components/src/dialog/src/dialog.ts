@@ -27,7 +27,7 @@ export const dialogProps = {
     },
     appendToBody: {
         type: Boolean,
-        default: false,
+        default: true,
     },
     lockScroll: {
         type: Boolean,

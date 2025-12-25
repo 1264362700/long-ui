@@ -109,12 +109,12 @@ const inputRef = ref<HTMLInputElement | null>(null)
 
 const selectedLabel = computed(() => {
     if (props.multiple) return ''
-    const option = props.options.find(opt => opt.value === props.modelValue)
+    const option = (props.options as SelectOption[]).find(opt => opt.value === props.modelValue)
     return option ? option.label : ''
 })
 
 const getLabelByValue = (val: string | number | boolean) => {
-    const option = props.options.find(opt => opt.value === val)
+    const option = (props.options as SelectOption[]).find(opt => opt.value === val)
     return option ? option.label : val
 }
 
@@ -126,8 +126,8 @@ const isSelected = (val: string | number | boolean) => {
 }
 
 const filteredOptions = computed(() => {
-    if (!props.filterable || !filterQuery.value) return props.options
-    return props.options.filter(opt => opt.label.includes(filterQuery.value))
+    if (!props.filterable || !filterQuery.value) return props.options as SelectOption[]
+    return (props.options as SelectOption[]).filter(opt => opt.label.includes(filterQuery.value))
 })
 
 const showClear = computed(() => {
@@ -175,6 +175,9 @@ const handleSelect = (item: SelectOption) => {
 
 const handleRemoveTag = (val: string | number | boolean) => {
     if (props.disabled) return
+    const option = (props.options as SelectOption[]).find(opt => opt.value === val)
+    if (option?.disabled) return
+    
     const modelValue = Array.isArray(props.modelValue) ? [...props.modelValue] : []
     const index = modelValue.indexOf(val as any)
     if (index > -1) {
