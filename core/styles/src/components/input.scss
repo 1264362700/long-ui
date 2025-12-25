@@ -1,208 +1,190 @@
 @use '../common/mixins.scss' as *;
 
 @include b(input) {
-    display: inline-flex;
-    width: 240px;
-    max-width: 100%;
+    --long-input-height: 32px;
+    --long-input-color: #262626;
+    --long-input-placeholder-color: #bfbfbf;
+    --long-input-border-color: #d9d9d9;
+    --long-input-hover-border-color: #4096ff;
+    --long-input-focus-border-color: #4096ff;
+    --long-input-focus-shadow: 0 0 0 2px rgba(5, 145, 255, 0.1);
+    --long-input-disabled-bg: #f5f5f5;
+    --long-input-disabled-color: #bfbfbf;
+
     position: relative;
-    font-size: var(--long-font-size-base);
-    line-height: var(--long-component-size-default);
+    display: inline-block;
+    width: 100%;
+    font-size: 14px;
+    color: var(--long-input-color);
     box-sizing: border-box;
     vertical-align: middle;
-    font-family: var(--long-font-family);
 
     @include e(wrapper) {
         display: inline-flex;
-        flex-grow: 1;
         align-items: center;
-        justify-content: center;
-        padding: 0 12px;
-        background-color: var(--long-fill-color-blank);
-        border-radius: var(--long-border-radius-base);
-        border: 1px solid var(--long-border-color);
+        width: 100%;
+        padding: 4px 11px;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid var(--long-input-border-color);
+        border-radius: 6px;
+        transition: all 0.2s;
         box-sizing: border-box;
-        color: var(--long-text-color-regular);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-        position: relative;
-        overflow: hidden;
 
         &:hover {
-            border-color: var(--long-color-primary-light-3);
-            background-color: var(--long-fill-color);
+            border-color: var(--long-input-hover-border-color);
         }
 
         &:focus-within {
-            border-color: var(--long-color-primary);
-            box-shadow: 0 0 0 3px rgba(var(--long-color-primary-rgb), 0.12), 0 2px 8px rgba(0, 0, 0, 0.05);
-            background-color: var(--long-fill-color-blank);
+            border-color: var(--long-input-focus-border-color);
+            box-shadow: var(--long-input-focus-shadow);
+            outline: 0;
+        }
+
+        @include when(disabled) {
+            color: var(--long-input-disabled-color);
+            background-color: var(--long-input-disabled-bg);
+            cursor: not-allowed;
+            border-color: var(--long-input-border-color);
+
+            &:hover {
+                border-color: var(--long-input-border-color);
+            }
+
+            input {
+                cursor: not-allowed;
+                background-color: transparent;
+
+                &::placeholder {
+                    color: var(--long-input-disabled-color);
+                }
+            }
         }
     }
 
     @include e(inner) {
         width: 100%;
-        flex-grow: 1;
-        -webkit-appearance: none;
-        color: var(--long-text-color-primary);
-        font-size: inherit;
-        height: calc(var(--long-component-size-default) - 2px);
-        line-height: calc(var(--long-component-size-default) - 2px);
+        height: calc(var(--long-input-height) - 10px);
         padding: 0;
-        outline: none;
-        border: none;
+        font-size: inherit;
+        line-height: 1.5715;
+        color: inherit;
         background: none;
+        border: none;
+        outline: none;
         box-sizing: border-box;
-        letter-spacing: 0.01em;
 
         &::placeholder {
-            color: var(--long-text-color-placeholder);
-            font-size: 13px;
-        }
-    }
-
-    // Textarea support
-    &.is-textarea {
-        line-height: 1.6;
-
-        @include e(wrapper) {
-            padding: 8px 12px;
-            min-height: 80px;
-            align-items: flex-start;
-        }
-
-        .long-textarea__inner {
-            height: auto;
-            min-height: 64px;
-            resize: vertical;
-            padding: 0;
-        }
-    }
-
-    @include when(disabled) {
-        cursor: not-allowed;
-        opacity: 0.7;
-
-        @include e(wrapper) {
-            background-color: var(--long-fill-color-light);
-            border-color: var(--long-border-color-light);
-            cursor: not-allowed;
-            box-shadow: none;
-
-            &:hover {
-                border-color: var(--long-border-color-light);
-            }
-        }
-
-        @include e(inner) {
-            color: var(--long-text-color-disabled);
-            cursor: not-allowed;
-
-            &::placeholder {
-                color: var(--long-text-color-disabled);
-            }
-        }
-    }
-
-    @include m(large) {
-        font-size: 15px;
-        line-height: var(--long-component-size-large);
-
-        @include e(wrapper) {
-            padding: 0 16px;
-            border-radius: 10px;
-        }
-
-        @include e(inner) {
-            height: calc(var(--long-component-size-large) - 2px);
-            line-height: calc(var(--long-component-size-large) - 2px);
-        }
-    }
-
-    @include m(small) {
-        font-size: 13px;
-        line-height: var(--long-component-size-small);
-
-        @include e(wrapper) {
-            padding: 0 8px;
-            border-radius: 6px;
-        }
-
-        @include e(inner) {
-            height: calc(var(--long-component-size-small) - 2px);
-            line-height: calc(var(--long-component-size-small) - 2px);
+            color: var(--long-input-placeholder-color);
         }
     }
 
     @include e(prefix) {
+        margin-right: 4px;
         display: inline-flex;
-        margin-right: 10px;
-        color: var(--long-text-color-placeholder);
-        font-size: 16px;
         align-items: center;
-        transition: color 0.3s;
+        color: rgba(0, 0, 0, 0.45);
     }
 
     @include e(suffix) {
+        margin-left: 4px;
         display: inline-flex;
-        margin-left: 10px;
-        color: var(--long-text-color-placeholder);
-        font-size: 16px;
         align-items: center;
+        color: rgba(0, 0, 0, 0.45);
         gap: 8px;
     }
 
     @include e(clear) {
         cursor: pointer;
-        padding: 4px;
-        border-radius: 50%;
+        color: rgba(0, 0, 0, 0.25);
+        transition: color 0.3s;
         display: flex;
-        font-size: 12px;
-        color: var(--long-text-color-placeholder);
-        transition: all 0.2s;
 
         &:hover {
-            background-color: var(--long-fill-color-dark-light);
-            color: var(--long-text-color-primary);
+            color: rgba(0, 0, 0, 0.45);
         }
     }
 
     @include e(password) {
         cursor: pointer;
-        user-select: none;
-        font-size: 14px;
-        opacity: 0.6;
-        transition: opacity 0.2s;
+        color: rgba(0, 0, 0, 0.25);
+        transition: color 0.3s;
+        display: flex;
 
         &:hover {
-            opacity: 1;
+            color: rgba(0, 0, 0, 0.45);
         }
     }
 
     @include e(count) {
-        font-size: 11px;
-        color: var(--long-text-color-disabled);
-        font-family: var(--long-font-family-mono);
-        background: var(--long-fill-color-light);
-        padding: 1px 6px;
-        border-radius: 4px;
+        font-size: 12px;
+        color: rgba(0, 0, 0, 0.25);
+        white-space: nowrap;
+
+        @include e(count-inner) {
+            background: transparent;
+        }
+    }
+
+    // Size variations
+    @include m(large) {
+        font-size: 16px;
+
+        @include e(wrapper) {
+            padding: 6.5px 11px;
+        }
+    }
+
+    @include m(small) {
+        @include e(wrapper) {
+            padding: 0px 7px;
+        }
     }
 }
 
-// Global textarea inner style for convenience
-.long-textarea__inner {
+@include b(textarea) {
+    display: inline-block;
     width: 100%;
-    appearance: none;
-    -webkit-appearance: none;
-    color: var(--long-text-color-regular);
-    font-size: inherit;
-    padding: 0;
-    outline: none;
-    border: none;
-    background: none;
-    box-sizing: border-box;
-    font-family: inherit;
+    vertical-align: bottom;
+    font-size: 14px;
 
-    &::placeholder {
-        color: var(--long-text-color-placeholder);
+    @include e(inner) {
+        display: block;
+        width: 100%;
+        min-height: 32px;
+        padding: 4px 11px;
+        color: #262626;
+        line-height: 1.5715;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #d9d9d9;
+        border-radius: 6px;
+        transition: all 0.2s;
+        box-sizing: border-box;
+        outline: none;
+        resize: vertical;
+
+        &::placeholder {
+            color: #bfbfbf;
+        }
+
+        &:hover {
+            border-color: #4096ff;
+        }
+
+        &:focus {
+            border-color: #4096ff;
+            box-shadow: 0 0 0 2px rgba(5, 145, 255, 0.1);
+        }
+
+        @include when(disabled) {
+            color: #bfbfbf;
+            background-color: #f5f5f5;
+            cursor: not-allowed;
+
+            &:hover {
+                border-color: #d9d9d9;
+            }
+        }
     }
 }

@@ -8,6 +8,11 @@ import { tableColumnProps } from './table-column'
 import { TABLE_INJECTION_KEY } from '../../table/src/store'
 
 const props = defineProps(tableColumnProps)
+
+defineOptions({
+  name: 'LongTableColumn'
+})
+
 const slots = useSlots()
 
 const store = inject(TABLE_INJECTION_KEY)

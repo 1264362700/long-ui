@@ -11,6 +11,11 @@ import { formProps } from './form'
 import { formContextKey, type FormContext, type FormItemContext, type FormProps } from './constants'
 
 const props = defineProps(formProps)
+
+defineOptions({
+  name: 'LongForm'
+})
+
 const ns = useNamespace('form')
 
 const fields: FormItemContext[] = []

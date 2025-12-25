@@ -50,6 +50,11 @@ import { tableProps } from './table'
 import Renderer from './renderer'
 
 const props = defineProps(tableProps)
+
+defineOptions({
+  name: 'LongTable'
+})
+
 const ns = useNamespace('table')
 const store = useTableStore()
 const { columns, data } = store

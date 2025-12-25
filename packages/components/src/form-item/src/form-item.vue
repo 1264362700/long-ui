@@ -35,6 +35,11 @@ import { formItemProps } from './form-item'
 import { formContextKey, formItemContextKey, type FormItemContext } from '../../form/src/constants'
 
 const props = defineProps(formItemProps)
+
+defineOptions({
+  name: 'LongFormItem'
+})
+
 const ns = useNamespace('form-item')
 
 const formContext = inject(formContextKey, undefined)

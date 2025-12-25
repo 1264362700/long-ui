@@ -5,93 +5,85 @@
 @include b(select) {
     display: inline-block;
     position: relative;
-    width: 240px;
+    width: 100%;
     max-width: 100%;
     vertical-align: middle;
-    font-size: var(--long-font-size-base);
-    font-family: var(--long-font-family);
+    font-size: 14px;
+    font-family: inherit;
 
     @include e(wrapper) {
         position: relative;
         display: flex;
         align-items: center;
-        min-height: var(--long-component-size-default);
+        min-height: 32px;
         cursor: pointer;
-        padding: 0 12px;
-        background-color: var(--long-fill-color-blank);
-        border-radius: var(--long-border-radius-base);
-        border: 1px solid var(--long-border-color);
+        padding: 0 11px;
+        background-color: #fff;
+        border-radius: 6px;
+        border: 1px solid #d9d9d9;
         box-sizing: border-box;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+        transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 
         &:hover {
-            border-color: var(--long-color-primary-light-3);
-            background-color: var(--long-fill-color);
+            border-color: #4096ff;
         }
 
         @include when(active) {
-            border-color: var(--long-color-primary);
-            box-shadow: 0 0 0 3px rgba(var(--long-color-primary-rgb), 0.12), 0 2px 8px rgba(0, 0, 0, 0.05);
+            border-color: #4096ff;
+            box-shadow: 0 0 0 2px rgba(5, 145, 255, 0.1);
         }
     }
 
     @include e(input) {
         flex: 1;
         width: 100%;
-        height: calc(var(--long-component-size-default) - 2px);
-        line-height: calc(var(--long-component-size-default) - 2px);
+        height: 30px;
+        line-height: 30px;
         padding: 0;
         background: transparent;
         border: none;
-        color: var(--long-text-color-primary);
+        color: #262626;
         font-size: inherit;
         outline: none;
         cursor: pointer;
-        letter-spacing: 0.01em;
 
         &::placeholder {
-            color: var(--long-text-color-placeholder);
-            font-size: 13px;
+            color: #bfbfbf;
         }
 
         @include when(multiple) {
             height: 24px;
             line-height: 24px;
-            min-width: 4px;
         }
     }
 
     @include when(disabled) {
-        cursor: not-allowed;
-        opacity: 0.7;
+        cursor: not-allowed !important;
 
         @include e(wrapper) {
-            background-color: var(--long-fill-color-light);
-            border-color: var(--long-border-color-light);
+            background-color: #f5f5f5;
+            border-color: #d9d9d9;
             cursor: not-allowed;
-            box-shadow: none;
 
             &:hover {
-                border-color: var(--long-border-color-light);
+                border-color: #d9d9d9;
             }
         }
 
         @include e(input) {
-            color: var(--long-text-color-disabled);
-            cursor: not-allowed;
+            color: rgba(0, 0, 0, 0.25);
+            cursor: not-allowed !important;
+        }
 
-            &::placeholder {
-                color: var(--long-text-color-disabled);
-            }
+        @include e(arrow) {
+            color: rgba(0, 0, 0, 0.25);
         }
     }
 
     @include e(suffix) {
         margin-left: 8px;
-        color: var(--long-text-color-placeholder);
+        color: rgba(0, 0, 0, 0.25);
         font-size: 12px;
-        transition: color 0.3s;
         display: flex;
         align-items: center;
         gap: 6px;
@@ -99,9 +91,8 @@
 
     @include e(arrow) {
         display: inline-block;
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: transform 0.3s;
         font-size: 10px;
-        opacity: 0.5;
 
         @include when(reverse) {
             transform: rotate(180deg);
@@ -111,28 +102,25 @@
     @include e(clear) {
         cursor: pointer;
         padding: 2px;
-        border-radius: 50%;
         display: flex;
         font-size: 10px;
-        color: var(--long-text-color-placeholder);
-        transition: all 0.2s;
+        color: rgba(0, 0, 0, 0.25);
+        transition: color 0.3s;
 
         &:hover {
-            background-color: var(--long-fill-color-dark-light);
-            color: var(--long-text-color-primary);
+            color: rgba(0, 0, 0, 0.45);
         }
     }
 
     @include e(dropdown) {
         position: absolute;
-        top: calc(100% + 8px);
+        top: calc(100% + 4px);
         left: 0;
         z-index: var(--long-index-popper);
         min-width: 100%;
-        background-color: var(--long-fill-color-blank);
-        border: 1px solid var(--long-border-color-light);
-        border-radius: 12px;
-        box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.15);
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
         box-sizing: border-box;
         padding: 4px;
         overflow: hidden;
@@ -145,75 +133,70 @@
     }
 
     @include e(item) {
-        font-size: 13px;
-        padding: 0 12px;
-        margin: 2px 0;
+        font-size: 14px;
+        padding: 5px 12px;
+        margin: 0;
         position: relative;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        color: var(--long-text-color-regular);
-        height: 34px;
-        line-height: 34px;
-        border-radius: 8px;
+        color: #262626;
+        line-height: 1.5715;
+        border-radius: 4px;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        transition: all 0.2s;
+        transition: background 0.3s;
 
         &:hover {
-            background-color: var(--long-fill-color-light);
-            color: var(--long-text-color-primary);
+            background-color: #f5f5f5;
         }
 
         @include when(selected) {
-            color: var(--long-color-primary);
-            background-color: rgba(var(--long-color-primary-rgb), 0.08);
+            color: #262626;
+            background-color: #e6f4ff;
             font-weight: 600;
 
             &::after {
-                content: '✓';
-                font-size: 12px;
-                font-weight: bold;
+                content: '\2713';
+                font-size: 10px;
+                color: #1677ff;
             }
         }
 
         @include when(disabled) {
-            color: var(--long-text-color-disabled);
+            color: rgba(0, 0, 0, 0.25);
             cursor: not-allowed;
             background-color: transparent !important;
-            opacity: 0.5;
         }
     }
 
     @include e(empty) {
-        padding: 20px 0;
+        padding: 16px 0;
         text-align: center;
-        color: var(--long-text-color-placeholder);
-        font-size: 13px;
+        color: rgba(0, 0, 0, 0.25);
     }
 
-    /* Multi-select Tags */
     @include e(tags) {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        gap: 6px;
-        padding: 4px 0;
+        gap: 4px;
+        padding: 2px 0;
         flex: 1;
     }
 
     @include e(tag) {
         display: inline-flex;
         align-items: center;
-        background: var(--long-color-primary-light-9);
-        color: var(--long-color-primary);
-        padding: 0 8px;
+        background: #f5f5f5;
+        color: #262626;
+        padding: 0 4px 0 8px;
         height: 24px;
-        border-radius: 6px;
+        border-radius: 4px;
         font-size: 12px;
-        border: 1px solid rgba(var(--long-color-primary-rgb), 0.1);
+        border: 1px solid #f0f0f0;
 
         @include e(tag-text) {
             max-width: 100px;
@@ -223,15 +206,14 @@
         }
 
         @include e(tag-close) {
-            margin-left: 6px;
+            margin-left: 4px;
             cursor: pointer;
             font-size: 10px;
-            opacity: 0.5;
-            transition: all 0.2s;
+            color: rgba(0, 0, 0, 0.45);
+            transition: color 0.3s;
 
             &:hover {
-                opacity: 1;
-                transform: scale(1.1);
+                color: #262626;
             }
         }
     }

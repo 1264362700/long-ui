@@ -1,58 +1,42 @@
 <template>
-  <div class="preview-container" :class="{ 'is-expanded': expanded }">
-    <!-- Header: Clean & Integrated -->
-    <div class="preview-header">
-      <div class="preview-badge">DEMO</div>
-      <div class="preview-divider"></div>
-      <div class="preview-title">{{ title || 'Component Showcase' }}</div>
-    </div>
-
-    <!-- Viewport: Gravity Field Design -->
-    <div class="preview-viewport">
-      <div class="viewport-mesh"></div>
-      <div class="component-wrapper">
+  <div class="antd-preview" :class="{ 'is-expanded': expanded }">
+    <!-- Viewport: Clean & Professional -->
+    <div class="preview-display">
+      <div class="component-view">
         <component :is="demoComponent" v-if="demoComponent" />
-        <div v-else class="loading-state">
-          <div class="gravity-loader"></div>
-          <span>Aligning Orbit...</span>
+        <div v-else class="antd-loading">
+          <div class="dot-spinner"></div>
         </div>
       </div>
     </div>
 
-    <!-- Info Block: Sleek Minimalism -->
-    <div class="preview-info" v-if="description">
-      <div class="info-content">
-        <div class="info-tag">DESCRIPTION</div>
-        <div class="info-text" v-html="description"></div>
-      </div>
+    <!-- Info Block: Minimalist -->
+    <div class="preview-description" v-if="description || title">
+      <div class="desc-header" v-if="title">{{ title }}</div>
+      <div class="desc-body" v-if="description" v-html="description"></div>
     </div>
 
-    <!-- Toolbar: Precision Interaction -->
-    <div class="preview-toolbar">
-      <div class="left-tools">
-        <button class="tool-btn action-expand" :class="{ 'active': expanded }" @click="toggleExpanded">
-          <svg v-if="!expanded" viewBox="0 0 24 24" class="icon"><path fill="currentColor" d="M12 16.5l-6-6h12l-6 6z"/></svg>
-          <svg v-else viewBox="0 0 24 24" class="icon"><path fill="currentColor" d="M12 7.5l6 6H6l6-6z"/></svg>
-          <span class="btn-text">{{ expanded ? 'Hide Code' : 'Source Code' }}</span>
+    <!-- Toolbar: Bottom Integrated -->
+    <div class="preview-actions">
+      <div class="action-icons">
+        <button class="action-btn" @click="copyCode" :title="copyStatus">
+          <svg viewBox="0 0 24 24" class="icon" v-if="copyStatus !== 'Copied!'"><path fill="currentColor" d="M16 1H4C2.9 1 2 1.9 2 3v14h2V3h12V1zm3 4H8C6.9 5 6 5.9 6 7v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+          <svg viewBox="0 0 20 20" class="icon success" v-else><path fill="currentColor" d="M0 11l2-2 5 5L18 3l2 2L7 18z"/></svg>
         </button>
-      </div>
-
-      <div class="right-tools">
-        <button class="icon-tool-btn" @click="copyCode" :title="copyStatus">
-          <svg viewBox="0 0 24 24" class="icon"><path fill="currentColor" d="M16 1H4C2.9 1 2 1.9 2 3v14h2V3h12V1zm3 4H8C6.9 5 6 5.9 6 7v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+        <button class="action-btn" @click="toggleExpanded" :class="{ 'active': expanded }" title="View Source">
+          <svg viewBox="0 0 24 24" class="icon"><path fill="currentColor" d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
         </button>
       </div>
     </div>
 
-    <!-- Code Display: Deep Space Theme -->
-    <transition name="code-slide">
-      <div class="preview-code-viewer" v-show="expanded">
-        <div class="code-inner">
-          <div class="code-header">
-            <span class="dot-deco"></span>
-            <span class="lang-label">vue</span>
-          </div>
-          <pre class="code-content"><code>{{ sourceCode }}</code></pre>
+    <!-- Source Code Section -->
+    <transition name="code-reveal">
+      <div class="preview-source" v-show="expanded">
+        <div class="source-header">
+          <span class="file-name">Source Code</span>
+        </div>
+        <div class="source-content">
+          <pre><code>{{ sourceCode }}</code></pre>
         </div>
       </div>
     </transition>
@@ -112,251 +96,156 @@ onMounted(fetchSource)
 </script>
 
 <style scoped>
-.preview-container {
-  margin: 3.5rem 0;
-  border-radius: 24px;
-  background: var(--vp-c-bg);
-  border: 1px solid var(--vp-c-divider);
+.antd-preview {
+  margin: 24px 0;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  background: #fff;
+  transition: all 0.3s;
   overflow: hidden;
-  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-  position: relative;
 }
 
-.preview-container:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
-  border-color: var(--vp-c-brand-light);
+.antd-preview:hover {
+  border-color: #d1d1d1;
 }
 
-/* Header Refinement */
-.preview-header {
-  height: 56px;
-  background: var(--vp-c-bg-soft);
-  display: flex;
-  align-items: center;
-  padding: 0 24px;
-  border-bottom: 1px solid var(--vp-c-divider-light);
-}
-
-.preview-badge {
-  font-size: 10px;
-  font-weight: 800;
-  color: var(--vp-c-brand);
-  background: var(--vp-c-brand-soft);
-  padding: 2px 8px;
-  border-radius: 6px;
-  letter-spacing: 0.05em;
-}
-
-.preview-divider {
-  width: 1px;
-  height: 14px;
-  background: var(--vp-c-divider-light);
-  margin: 0 16px;
-}
-
-.preview-title {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--vp-c-text-1);
-}
-
-/* Viewport Engineering */
-.preview-viewport {
-  padding: 60px 40px;
-  position: relative;
-  min-height: 140px;
-  background: var(--vp-c-bg);
+.preview-display {
+  padding: 42px 24px;
+  border-bottom: 1px solid #f0f0f0;
+  background: #fff;
   display: flex;
   justify-content: center;
 }
 
-.viewport-mesh {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: 
-    linear-gradient(var(--vp-c-divider-light) 1px, transparent 1px),
-    linear-gradient(90deg, var(--vp-c-divider-light) 1px, transparent 1px);
-  background-size: 32px 32px;
-  opacity: 0.15;
-  pointer-events: none;
-}
-
-.component-wrapper {
-  z-index: 1;
+.component-view {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 24px;
 }
 
-/* Info Styling */
-.preview-info {
-  padding: 16px 24px;
-  background: var(--vp-c-bg-mute);
-  border-top: 1px solid var(--vp-c-divider-light);
-  border-bottom: 1px solid var(--vp-c-divider-light);
+.preview-description {
+  padding: 18px 24px;
+  background: #fafafa;
+  border-bottom: 1px dashed #f0f0f0;
 }
 
-.info-tag {
-  font-size: 9px;
-  font-weight: 900;
-  color: var(--vp-c-text-3);
-  margin-bottom: 6px;
-  letter-spacing: 0.08em;
-}
-
-.info-text {
+.desc-header {
+  position: relative;
+  top: -28px;
+  background: #fff;
+  display: inline-block;
+  padding: 0 8px;
+  margin-left: -8px;
   font-size: 14px;
-  color: var(--vp-c-text-2);
-  line-height: 1.6;
+  font-weight: 500;
+  color: #262626;
+  border: 1px solid #f0f0f0;
+  border-radius: 2px;
 }
 
-/* Toolbar Optimization */
-.preview-toolbar {
-  height: 52px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 16px;
-  background: var(--vp-c-bg-soft);
+.desc-body {
+  font-size: 14px;
+  color: #595959;
+  line-height: 1.5715;
 }
 
-.tool-btn {
-  height: 34px;
-  padding: 0 16px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--vp-c-text-2);
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  background: transparent;
-  border: 1px solid transparent;
-}
-
-.tool-btn:hover {
-  background: var(--vp-c-bg-mute);
-  color: var(--vp-c-brand);
-  border-color: var(--vp-c-brand-soft);
-}
-
-.tool-btn.active {
-  background: var(--vp-c-brand-soft);
-  color: var(--vp-c-brand);
-  box-shadow: 0 4px 12px rgba(64, 158, 255, 0.15);
-}
-
-.icon-tool-btn {
-  width: 34px;
-  height: 34px;
+.preview-actions {
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
-  color: var(--vp-c-text-3);
-  transition: all 0.2s;
-  background: transparent;
+  background: #fff;
 }
 
-.icon-tool-btn:hover {
-  background: var(--vp-c-bg-mute);
-  color: var(--vp-c-text-1);
+.action-icons {
+  display: flex;
+  gap: 16px;
+}
+
+.action-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  border: none;
+  background: transparent;
+  color: #8c8c8c;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.action-btn:hover {
+  background: #f5f5f5;
+  color: #595959;
+}
+
+.action-btn.active {
+  color: #1677ff;
+  background: #e6f4ff;
 }
 
 .icon {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
 }
 
-/* Code Viewer Aesthetic */
-.preview-code-viewer {
-  background: #0d1117;
-  padding: 20px;
+.icon.success {
+  color: #52c41a;
 }
 
-.code-inner {
-  border-radius: 16px;
-  background: #161b22;
-  border: 1px solid #30363d;
-  overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+.preview-source {
+  background: #fafafa;
+  border-top: 1px solid #f0f0f0;
 }
 
-.code-header {
-  height: 40px;
-  background: #0d1117;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 16px;
-  border-bottom: 1px solid #30363d;
-}
-
-.dot-deco {
-  width: 8px;
-  height: 8px;
-  background: #30363d;
-  border-radius: 50%;
-  box-shadow: 12px 0 0 #30363d, 24px 0 0 #30363d;
-}
-
-.lang-label {
-  font-size: 10px;
-  font-weight: 800;
-  color: #8b949e;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.code-content {
-  margin: 0 !important;
-  padding: 24px;
+.source-header {
+  padding: 12px 24px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 12px;
+  color: #8c8c8c;
   font-family: var(--vp-font-family-mono);
-  font-size: 14px;
-  line-height: 1.7;
-  color: #d1d5db;
+}
+
+.source-content {
+  padding: 0;
+}
+
+pre {
+  margin: 0 !important;
+  padding: 16px 24px;
+  background: #fafafa !important;
+  font-size: 13px;
+  line-height: 2;
+  color: #314659;
   overflow-x: auto;
 }
 
-/* Transitions */
-.code-slide-enter-active, .code-slide-leave-active {
-  transition: all 0.5s cubic-bezier(0.33, 1, 0.68, 1);
-  max-height: 1200px;
+.antd-loading {
+  padding: 40px;
 }
-.code-slide-enter-from, .code-slide-leave-to {
+
+.dot-spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #1677ff;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.code-reveal-enter-active, .code-reveal-leave-active {
+  transition: all 0.3s ease-out;
+  max-height: 2000px;
+}
+.code-reveal-enter-from, .code-reveal-leave-to {
   max-height: 0;
   opacity: 0;
-  transform: translateY(-20px);
-}
-
-.gravity-loader {
-  width: 48px;
-  height: 2px;
-  background: var(--vp-c-divider-light);
-  position: relative;
-}
-
-.gravity-loader::after {
-  content: "";
-  position: absolute;
-  width: 20px;
-  height: 100%;
-  background: var(--vp-c-brand);
-  box-shadow: 0 0 10px var(--vp-c-brand);
-  animation: orbit 2s infinite ease-in-out;
-}
-
-@keyframes orbit {
-  0% { left: 0%; transform: scaleX(0.5); }
-  50% { left: 60%; transform: scaleX(1.5); }
-  100% { left: 0%; transform: scaleX(0.5); }
 }
 </style>
