@@ -48,6 +48,8 @@ export default defineConfig({
                             items: [
                                 { text: 'Button 按钮', link: '/components/button' },
                                 { text: 'Icon 图标', link: '/components/icon' },
+                                { text: 'Space 间距', link: '/components/space' },
+                                { text: 'Card 卡片', link: '/components/card' },
                                 { text: 'Tag 标签', link: '/components/tag' }
                             ]
                         },

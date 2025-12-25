@@ -1,237 +1,57 @@
-@use 'sass:map';
-@use '../common/var' as *;
 @use '../common/mixins.scss' as *;
 
 @include b(select) {
+    --long-select-border: #d9d9d9;
+    --long-select-hover: #4096ff;
+    --long-select-shadow: 0 0 0 2px rgba(5, 145, 255, 0.1);
+
     display: inline-block;
     position: relative;
     width: 100%;
-    max-width: 100%;
     vertical-align: middle;
-    font-size: 14px;
-    font-family: inherit;
 
-    @include e(wrapper) {
-        position: relative;
-        display: flex;
-        align-items: center;
-        min-height: 32px;
-        cursor: pointer;
-        padding: 4px 11px;
-        background-color: #fff;
-        border-radius: 6px;
-        border: 1px solid #d9d9d9;
-        box-sizing: border-box;
-        transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
-
-        &:hover {
-            border-color: #4096ff;
-        }
-
-        @include when(active) {
-            border-color: #4096ff;
-            box-shadow: 0 0 0 2px rgba(5, 145, 255, 0.1);
-        }
-    }
-
-    @include e(input) {
-        flex: 1;
-        width: 100%;
-        height: 22px;
-        line-height: 22px;
-        padding: 0;
-        background: transparent;
-        border: none;
-        color: rgba(0, 0, 0, 0.88);
-        font-size: inherit;
-        outline: none;
+    .long-input__wrapper {
         cursor: pointer;
 
-        &::placeholder {
-            color: rgba(0, 0, 0, 0.25);
-        }
-
-        @include when(multiple) {
-            height: 24px;
-            line-height: 24px;
-        }
-    }
-
-    @include when(disabled) {
-        cursor: not-allowed !important;
-
-        @include e(wrapper) {
-            background-color: rgba(0, 0, 0, 0.04);
-            border-color: #d9d9d9;
-            cursor: not-allowed;
-
-            &:hover {
-                border-color: #d9d9d9;
-            }
-        }
-
-        @include e(input) {
-            color: rgba(0, 0, 0, 0.25);
-            cursor: not-allowed !important;
-        }
-
-        @include e(arrow) {
-            color: rgba(0, 0, 0, 0.25);
-        }
-    }
-
-    @include e(suffix) {
-        margin-left: 8px;
-        color: rgba(0, 0, 0, 0.25);
-        font-size: 12px;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-    }
-
-    @include e(arrow) {
-        display: inline-block;
-        transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-        font-size: 10px;
-
-        @include when(reverse) {
-            transform: rotate(180deg);
-        }
-    }
-
-    @include e(clear) {
-        cursor: pointer;
-        padding: 2px;
-        display: flex;
-        font-size: 10px;
-        color: rgba(0, 0, 0, 0.25);
-        transition: color 0.3s;
-
-        &:hover {
-            color: rgba(0, 0, 0, 0.45);
+        input {
+            cursor: pointer;
         }
     }
 
     @include e(dropdown) {
         position: absolute;
-        top: calc(100% + 4px);
+        top: 100%;
         left: 0;
-        z-index: var(--long-index-popper);
-        min-width: 100%;
+        z-index: 1000;
+        margin-top: 4px;
+        padding: 4px 0;
         background-color: #fff;
         border-radius: 8px;
-        box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
-        box-sizing: border-box;
-        padding: 4px;
-        overflow: hidden;
-    }
-
-    @include e(list) {
-        list-style: none;
-        padding: 0;
-        margin: 0;
+        box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08);
+        min-width: 100%;
     }
 
     @include e(item) {
-        font-size: 14px;
         padding: 5px 12px;
-        margin: 0;
-        position: relative;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        font-size: 14px;
         color: rgba(0, 0, 0, 0.88);
-        line-height: 1.5715;
-        border-radius: 4px;
         cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        transition: background 0.3s;
 
         &:hover {
             background-color: rgba(0, 0, 0, 0.04);
         }
 
-        @include when(selected) {
-            color: rgba(0, 0, 0, 0.88);
+        &.is-selected {
             background-color: #e6f4ff;
             font-weight: 600;
-
-            &::after {
-                content: '\2713';
-                font-size: 10px;
-                color: #1677ff;
-            }
+            color: #1677ff;
         }
 
-        @include when(disabled) {
+        &.is-disabled {
             color: rgba(0, 0, 0, 0.25);
             cursor: not-allowed;
-            background-color: transparent !important;
+            background: transparent;
         }
-    }
-
-    @include e(empty) {
-        padding: 16px 0;
-        text-align: center;
-        color: rgba(0, 0, 0, 0.25);
-    }
-
-    @include e(tags) {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 4px;
-        padding: 2px 0;
-        flex: 1;
-    }
-
-    @include e(tag) {
-        display: inline-flex;
-        align-items: center;
-        background: rgba(0, 0, 0, 0.06);
-        color: rgba(0, 0, 0, 0.88);
-        padding: 0 4px 0 8px;
-        height: 24px;
-        border-radius: 4px;
-        font-size: 12px;
-        border: 1px solid transparent;
-        transition: all 0.2s;
-
-        &:hover {
-            border-color: #d9d9d9;
-        }
-
-        @include e(tag-text) {
-            max-width: 100px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        @include e(tag-close) {
-            margin-left: 4px;
-            cursor: pointer;
-            font-size: 10px;
-            color: rgba(0, 0, 0, 0.45);
-            transition: color 0.3s;
-
-            &:hover {
-                color: rgba(0, 0, 0, 0.88);
-            }
-        }
-    }
-}
-
-@keyframes long-dropdown-fade {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
     }
 }

@@ -43,18 +43,20 @@
 
     &:hover,
     &:focus {
-        color: var(--long-color-primary);
-        border-color: var(--long-color-primary-light-7);
-        background-color: var(--long-color-primary-light-9);
-        box-shadow: var(--long-box-shadow-level-2);
-        transform: translateY(-1px);
+        color: var(--long-color-primary-hover);
+        border-color: var(--long-color-primary-hover);
+        background-color: #fff;
+    }
+
+    &:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(5, 145, 255, 0.1);
     }
 
     &:active {
-        color: var(--long-color-primary-dark-2);
-        border-color: var(--long-color-primary-dark-2);
-        transform: translateY(0) scale(0.96);
-        box-shadow: var(--long-box-shadow-level-1);
+        color: var(--long-color-primary-active);
+        border-color: var(--long-color-primary-active);
+        background-color: #fff;
     }
 
     // Element: loading

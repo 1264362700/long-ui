@@ -20,6 +20,8 @@
 @use './components/empty.scss';
 @use './components/loading.scss';
 @use './components/pagination.scss';
+@use './components/space.scss';
+@use './components/card.scss';
 @use './dark/index';
 
 :root {
@@ -27,7 +29,12 @@
     --long-color-white: #ffffff;
     --long-color-black: #000000;
 
-    --long-color-primary: #409eff;
+    // Brand Colors (AntD-like)
+    --long-color-primary: #1677ff;
+    --long-color-primary-hover: #4096ff;
+    --long-color-primary-active: #0958d9;
+    --long-color-primary-bg: #e6f4ff;
+
     --long-color-success: #67c23a;
     --long-color-warning: #e6a23c;
     --long-color-danger: #f56c6c;
@@ -35,7 +42,7 @@
     --long-color-info: #909399;
 
     @for $i from 1 through 9 {
-        --long-color-primary-light-#{$i}: #{mix(#ffffff, #409eff, $i * 10%)};
+        --long-color-primary-light-#{$i}: #{mix(#ffffff, var(--long-color-primary), $i * 10%)};
         --long-color-success-light-#{$i}: #{mix(#ffffff, #67c23a, $i * 10%)};
         --long-color-warning-light-#{$i}: #{mix(#ffffff, #e6a23c, $i * 10%)};
         --long-color-danger-light-#{$i}: #{mix(#ffffff, #f56c6c, $i * 10%)};

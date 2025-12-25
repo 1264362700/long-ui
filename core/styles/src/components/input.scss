@@ -2,23 +2,16 @@
 
 @include b(input) {
     --long-input-height: 32px;
-    --long-input-color: rgba(0, 0, 0, 0.88);
-    --long-input-placeholder-color: rgba(0, 0, 0, 0.25);
-    --long-input-border-color: #d9d9d9;
-    --long-input-hover-border-color: #4096ff;
-    --long-input-focus-border-color: #4096ff;
-    --long-input-focus-shadow: 0 0 0 2px rgba(5, 145, 255, 0.1);
-    --long-input-disabled-bg: rgba(0, 0, 0, 0.04);
-    --long-input-disabled-color: rgba(0, 0, 0, 0.25);
+    --long-input-border: #d9d9d9;
+    --long-input-hover: #4096ff;
+    --long-input-shadow: 0 0 0 2px rgba(5, 145, 255, 0.1);
 
     position: relative;
     display: inline-block;
     width: 100%;
     font-size: 14px;
     line-height: 1.5715;
-    color: var(--long-input-color);
     box-sizing: border-box;
-    vertical-align: middle;
 
     @include e(wrapper) {
         display: inline-flex;
@@ -26,115 +19,67 @@
         width: 100%;
         padding: 4px 11px;
         background-color: #fff;
-        background-image: none;
-        border: 1px solid var(--long-input-border-color);
+        border: 1px solid var(--long-input-border);
         border-radius: 6px;
-        transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+        transition: all 0.2s;
         box-sizing: border-box;
 
         &:hover {
-            border-color: var(--long-input-hover-border-color);
+            border-color: var(--long-input-hover);
         }
 
         &:focus-within {
-            border-color: var(--long-input-focus-border-color);
-            box-shadow: var(--long-input-focus-shadow);
-            outline: 0;
+            border-color: var(--long-input-hover);
+            box-shadow: var(--long-input-shadow);
+            outline: none;
         }
 
         @include when(disabled) {
-            color: var(--long-input-disabled-color);
-            background-color: var(--long-input-disabled-bg);
+            background-color: rgba(0, 0, 0, 0.04);
             cursor: not-allowed;
-            border-color: var(--long-input-border-color);
 
             &:hover {
-                border-color: var(--long-input-border-color);
-            }
-
-            input {
-                color: inherit;
-                cursor: not-allowed;
-                background-color: transparent;
-
-                &::placeholder {
-                    color: var(--long-input-disabled-color);
-                }
+                border-color: var(--long-input-border);
             }
         }
     }
 
     @include e(inner) {
         width: 100%;
-        height: 22px;
-        padding: 0;
-        font-size: inherit;
-        line-height: inherit;
-        color: inherit;
-        background: none;
         border: none;
         outline: none;
-        box-sizing: border-box;
-        font-family: inherit;
+        padding: 0;
+        height: 22px;
+        background: transparent;
+        font-size: inherit;
+        color: rgba(0, 0, 0, 0.88);
 
         &::placeholder {
-            color: var(--long-input-placeholder-color);
+            color: rgba(0, 0, 0, 0.25);
+        }
+
+        &:disabled {
+            cursor: not-allowed;
         }
     }
 
+    // Prefix/Suffix
     @include e(prefix) {
-        margin-right: 4px;
-        display: inline-flex;
-        align-items: center;
         color: rgba(0, 0, 0, 0.45);
-        font-size: 14px;
+        margin-right: 4px;
+        display: flex;
+        align-items: center;
     }
 
     @include e(suffix) {
-        margin-left: 4px;
-        display: inline-flex;
-        align-items: center;
         color: rgba(0, 0, 0, 0.45);
+        margin-left: 4px;
+        display: flex;
+        align-items: center;
         gap: 8px;
-        font-size: 14px;
     }
 
-    @include e(clear) {
-        cursor: pointer;
-        color: rgba(0, 0, 0, 0.25);
-        transition: color 0.3s;
-        display: flex;
-
-        &:hover {
-            color: rgba(0, 0, 0, 0.45);
-        }
-    }
-
-    @include e(password) {
-        cursor: pointer;
-        color: rgba(0, 0, 0, 0.25);
-        transition: color 0.3s;
-        display: flex;
-
-        &:hover {
-            color: rgba(0, 0, 0, 0.45);
-        }
-    }
-
-    @include e(count) {
-        font-size: 12px;
-        color: rgba(0, 0, 0, 0.25);
-        white-space: nowrap;
-
-        @include e(count-inner) {
-            background: transparent;
-        }
-    }
-
-    // Size variations
     @include m(large) {
-        font-size: 16px;
-
         @include e(wrapper) {
             padding: 6.5px 11px;
         }
@@ -142,58 +87,11 @@
 
     @include m(small) {
         @include e(wrapper) {
-            padding: 0px 7px;
+            padding: 0 7px;
         }
 
         @include e(inner) {
             height: 20px;
-        }
-    }
-}
-
-@include b(textarea) {
-    display: inline-block;
-    width: 100%;
-    vertical-align: bottom;
-    font-size: 14px;
-
-    @include e(inner) {
-        display: block;
-        width: 100%;
-        min-height: 32px;
-        padding: 4px 11px;
-        color: rgba(0, 0, 0, 0.88);
-        line-height: 1.5715;
-        background-color: #fff;
-        background-image: none;
-        border: 1px solid #d9d9d9;
-        border-radius: 6px;
-        transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
-        box-sizing: border-box;
-        outline: none;
-        resize: vertical;
-
-        &::placeholder {
-            color: rgba(0, 0, 0, 0.25);
-        }
-
-        &:hover {
-            border-color: #4096ff;
-        }
-
-        &:focus {
-            border-color: #4096ff;
-            box-shadow: 0 0 0 2px rgba(5, 145, 255, 0.1);
-        }
-
-        @include when(disabled) {
-            color: rgba(0, 0, 0, 0.25);
-            background-color: rgba(0, 0, 0, 0.04);
-            cursor: not-allowed;
-
-            &:hover {
-                border-color: #d9d9d9;
-            }
         }
     }
 }

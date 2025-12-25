@@ -9,7 +9,7 @@
       @click="togglePicker"
     >
       <template #suffix>
-        <long-icon name="time" />
+        <long-icon name="clock" />
       </template>
     </long-input>
 
@@ -63,6 +63,10 @@ import { timePickerProps } from './time-picker'
 
 const props = defineProps(timePickerProps)
 const emit = defineEmits(['update:modelValue', 'change'])
+
+defineOptions({
+  name: 'LongTimePicker'
+})
 
 const ns = useNamespace('time-picker')
 const showPicker = ref(false)

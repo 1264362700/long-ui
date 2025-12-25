@@ -19,6 +19,8 @@ import { LongTag } from './tag'
 import { LongEmpty } from './empty'
 import { LongLoading } from './loading'
 import { LongPagination } from './pagination'
+import { LongSpace } from './space'
+import { LongCard } from './card'
 import type { App } from 'vue'
 
 const components = [
@@ -44,7 +46,9 @@ const components = [
     LongTag,
     LongEmpty,
     LongLoading,
-    LongPagination
+    LongPagination,
+    LongSpace,
+    LongCard
 ]
 
 export default {
@@ -76,3 +80,5 @@ export * from './tag'
 export * from './empty'
 export * from './loading'
 export * from './pagination'
+export * from './space'
+export * from './card'

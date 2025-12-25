@@ -1,22 +1,16 @@
 <template>
-  <long-select v-model="value" placeholder="Select">
-    <long-option
-      v-for="item in options"
-      :key="item.value"
-      :label="item.label"
-      :value="item.value"
-    />
-  </long-select>
+  <LongSpace>
+    <LongSelect v-model="value" placeholder="请选择类型" style="width: 200px">
+      <option value="1">选项 一</option>
+      <option value="2">选项 二</option>
+    </LongSelect>
+    
+    <LongSelect v-model="value" disabled placeholder="禁用状态" style="width: 200px">
+    </LongSelect>
+  </LongSpace>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 const value = ref('')
-const options = [
-  { value: 'Option1', label: 'Option 1' },
-  { value: 'Option2', label: 'Option 2' },
-  { value: 'Option3', label: 'Option 3' },
-  { value: 'Option4', label: 'Option 4' },
-  { value: 'Option5', label: 'Option 5' },
-]
 </script>

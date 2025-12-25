@@ -1,0 +1,32 @@
+@use '../common/mixins.scss' as *;
+
+@include b(card) {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    transition: all 0.3s;
+
+    @include e(header) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 24px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    @include e(title) {
+        font-size: 16px;
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.88);
+    }
+
+    @include e(body) {
+        padding: 24px;
+    }
+
+    @include when(shadow) {
+        &:hover {
+            box-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09);
+        }
+    }
+}
