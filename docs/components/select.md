@@ -18,6 +18,12 @@
 
 <preview path="../demos/select/clearable.vue" title="可清空单选" description="通过 clearable 属性启用清空按钮。"></preview>
 
+## 多选模式
+
+使用 multiple 属性即可启用多选，此时 v-model 的值为数组。
+
+<preview path="../demos/select/multiple.vue" title="多选模式" description="通过 multiple 属性开启多选功能。"></preview>
+
 ## API
 
 ### Select Attributes
