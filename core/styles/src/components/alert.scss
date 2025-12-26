@@ -1,0 +1,113 @@
+@use '../common/mixins.scss' as *;
+
+@include b(alert) {
+    --long-alert-padding: 8px 16px;
+    --long-alert-border-radius: 4px;
+    --long-alert-title-font-size: 14px;
+    --long-alert-description-font-size: 12px;
+    --long-alert-icon-size: 16px;
+    --long-alert-close-font-size: 12px;
+
+    width: 100%;
+    padding: var(--long-alert-padding);
+    margin: 0;
+    box-sizing: border-box;
+    border-radius: var(--long-alert-border-radius);
+    position: relative;
+    background-color: #fff;
+    overflow: hidden;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    transition: opacity 0.2s;
+    border: 1px solid transparent;
+
+    @include e(content) {
+        display: table-cell;
+        padding: 0 8px;
+        flex: 1;
+    }
+
+    @include e(title) {
+        font-size: var(--long-alert-title-font-size);
+        line-height: 18px;
+
+        @include when(bold) {
+            font-weight: 600;
+        }
+    }
+
+    @include e(description) {
+        font-size: var(--long-alert-description-font-size);
+        margin: 5px 0 0 0;
+    }
+
+    @include e(icon) {
+        font-size: var(--long-alert-icon-size);
+        width: var(--long-alert-icon-size);
+    }
+
+    @include e(close-btn) {
+        font-size: var(--long-alert-close-font-size);
+        color: rgba(0, 0, 0, 0.45);
+        cursor: pointer;
+        position: absolute;
+        top: 12px;
+        right: 15px;
+
+        &:hover {
+            color: rgba(0, 0, 0, 0.88);
+        }
+
+        @include when(customed) {
+            font-style: normal;
+        }
+    }
+
+    // Types
+    @include m(info) {
+        background-color: #e6f4ff;
+        border-color: #91caff;
+        color: rgba(0, 0, 0, 0.88);
+
+        .long-alert__icon {
+            color: #1677ff;
+        }
+    }
+
+    @include m(success) {
+        background-color: #f6ffed;
+        border-color: #b7eb8f;
+        color: rgba(0, 0, 0, 0.88);
+
+        .long-alert__icon {
+            color: #52c41a;
+        }
+    }
+
+    @include m(warning) {
+        background-color: #fffbe6;
+        border-color: #ffe58f;
+        color: rgba(0, 0, 0, 0.88);
+
+        .long-alert__icon {
+            color: #faad14;
+        }
+    }
+
+    @include m(error) {
+        background-color: #fff2f0;
+        border-color: #ffccc7;
+        color: rgba(0, 0, 0, 0.88);
+
+        .long-alert__icon {
+            color: #ff4d4f;
+        }
+    }
+
+    // Transitions
+    &-fade-enter-from,
+    &-fade-leave-to {
+        opacity: 0;
+    }
+}

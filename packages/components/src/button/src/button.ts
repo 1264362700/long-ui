@@ -4,7 +4,7 @@ import type { ComponentSize, ComponentStatus } from '@long-ui/utils'
 /**
  * Button 类型
  */
-export type ButtonType = ComponentStatus | 'primary' | 'danger' | 'default' | 'text'
+export type ButtonType = 'primary' | 'success' | 'warning' | 'danger' | 'info' | 'text' | 'dashed' | 'default'
 
 /**
  * Button 原生类型

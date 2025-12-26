@@ -9,3 +9,5 @@ export function useMessage() {
 
     return message
 }
+
+export type UseMessageReturn = ReturnType<typeof useMessage>

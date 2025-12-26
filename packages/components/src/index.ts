@@ -20,8 +20,13 @@ import { LongEmpty } from './empty'
 import { LongLoading } from './loading'
 import { LongPagination } from './pagination'
 import { LongSpace } from './space'
-import { LongCard } from './card'
-import { LongSkeleton } from './skeleton'
+import { LongCard } from './card/index'
+import { LongSkeleton } from './skeleton/index'
+import { LongBadge } from './badge/index'
+import { LongDescriptions, LongDescriptionsItem } from './descriptions/index'
+import { LongAlert } from './alert/index'
+import { LongTabs, LongTabPane } from './tabs/index'
+import { LongTooltip } from './tooltip/index'
 import type { App } from 'vue'
 
 const components = [
@@ -47,9 +52,17 @@ const components = [
     LongTag,
     LongEmpty,
     LongLoading,
+    LongPagination,
     LongSpace,
     LongCard,
-    LongSkeleton
+    LongSkeleton,
+    LongBadge,
+    LongDescriptions,
+    LongDescriptionsItem,
+    LongAlert,
+    LongTabs,
+    LongTabPane,
+    LongTooltip
 ]
 
 export default {
@@ -82,5 +95,8 @@ export * from './empty'
 export * from './loading'
 export * from './pagination'
 export * from './space'
-export * from './card'
-export * from './skeleton'
+export * from './card/index'
+export * from './skeleton/index'
+export * from './badge/index'
+export * from './descriptions/index'
+export * from './alert/index'

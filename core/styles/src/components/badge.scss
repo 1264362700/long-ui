@@ -1,0 +1,56 @@
+@use '../common/mixins.scss' as *;
+
+@include b(badge) {
+    position: relative;
+    vertical-align: middle;
+    display: inline-block;
+
+    @include e(content) {
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translateY(-50%) translateX(50%);
+        z-index: 10;
+        height: 18px;
+        padding: 0 6px;
+        color: #fff;
+        font-size: 12px;
+        line-height: 18px;
+        white-space: nowrap;
+        background-color: var(--long-color-danger);
+        border: 1px solid #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 0 1px #fff;
+
+        @include m(primary) {
+            background-color: var(--long-color-primary);
+        }
+
+        @include m(success) {
+            background-color: var(--long-color-success, #52c41a);
+        }
+
+        @include m(warning) {
+            background-color: var(--long-color-warning, #faad14);
+        }
+
+        @include m(info) {
+            background-color: var(--long-color-info, #909399);
+        }
+
+        @include when(dot) {
+            height: 8px;
+            width: 8px;
+            padding: 0;
+            right: 0;
+            border-radius: 50%;
+        }
+
+        @include when(fixed) {
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translateY(-50%) translateX(50%);
+        }
+    }
+}

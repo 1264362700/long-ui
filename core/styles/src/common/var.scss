@@ -22,19 +22,19 @@ $text-color: (
 
 $border-color: (
   'base': var(--long-border-color),
-  'light': var(--long-border-color-light),
-  'lighter': var(--long-border-color-lighter),
-  'extra-light': var(--long-border-color-extra-light),
-  'dark': var(--long-border-color-dark),
-  'darker': var(--long-border-color-darker),
+  'light': #f0f0f0,
+  'lighter': #f5f5f5,
+  'extra-light': #fafafa,
+  'dark': #d9d9d9,
+  'darker': #bfbfbf,
   ) !default;
 
 $fill-color: (
   'base': var(--long-fill-color),
-  'light': var(--long-fill-color-light),
-  'lighter': var(--long-fill-color-lighter),
-  'extra-light': var(--long-fill-color-extra-light),
-  'blank': var(--long-fill-color-blank),
+  'light': #fafafa,
+  'lighter': #f5f5f5,
+  'extra-light': #ffffff,
+  'blank': #ffffff,
   ) !default;
 
 $font-size: (
@@ -52,13 +52,19 @@ $element-separator: '__' !default;
 $modifier-separator: '--' !default;
 $state-prefix: 'is-' !default;
 
+// 阴影体系 (AntD 5.0 风格)
+$shadow: (
+  'small': 0 2px 8px rgba(0, 0, 0, 0.06),
+  'medium': 0 6px 16px 0 rgba(0, 0, 0, 0.08),
+  'large': 0 9px 28px 8px rgba(0, 0, 0, 0.05)) !default;
+
 // 组件级变量初始映射 (供 mixins 使用)
 $input: (
-  'text-color': var(--long-text-color-regular),
-  'border-color': var(--long-border-color),
-  'border-radius': var(--long-border-radius-base),
-  'bg-color': var(--long-fill-color-blank),
-  'height': var(--long-component-size-default),
+  'text-color': rgba(0, 0, 0, 0.88),
+  'border-color': #d9d9d9,
+  'border-radius': 6px,
+  'bg-color': #ffffff,
+  'height': 32px,
   ) !default;
 
 $radio: (

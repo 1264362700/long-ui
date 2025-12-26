@@ -22,13 +22,14 @@
         position: absolute;
         top: 100%;
         left: 0;
-        z-index: 1000;
+        z-index: var(--long-index-popper);
         margin-top: 4px;
         padding: 4px 0;
         background-color: #fff;
-        border-radius: 8px;
-        box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08);
+        border-radius: var(--long-border-radius);
+        box-shadow: var(--long-box-shadow-m);
         min-width: 100%;
+        transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
     }
 
     @include e(item) {
@@ -36,7 +37,7 @@
         font-size: 14px;
         color: rgba(0, 0, 0, 0.88);
         cursor: pointer;
-        transition: background 0.3s;
+        transition: background 0.2s;
 
         &:hover {
             background-color: rgba(0, 0, 0, 0.04);

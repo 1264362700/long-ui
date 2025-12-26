@@ -1,0 +1,116 @@
+@use '../common/mixins.scss' as *;
+
+@include b(tabs) {
+    --long-tabs-header-height: 40px;
+    --long-tabs-font-size: 14px;
+    --long-tabs-color-active: #1677ff;
+    --long-tabs-color-text: rgba(0, 0, 0, 0.88);
+    --long-tabs-color-disabled: rgba(0, 0, 0, 0.25);
+    --long-tabs-border-color: #f0f0f0;
+
+    display: block;
+
+    @include e(header) {
+        position: relative;
+        margin: 0 0 16px 0;
+    }
+
+    @include e(nav-wrap) {
+        overflow: hidden;
+        margin-bottom: -1px;
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--long-tabs-border-color);
+            z-index: 1;
+        }
+    }
+
+    @include e(nav-scroll) {
+        overflow: hidden;
+    }
+
+    @include e(nav) {
+        white-space: nowrap;
+        position: relative;
+        transition: transform 0.3s;
+        float: left;
+        z-index: 2;
+        display: flex;
+    }
+
+    @include e(item) {
+        padding: 0 16px;
+        height: var(--long-tabs-header-height);
+        box-sizing: border-box;
+        line-height: var(--long-tabs-header-height);
+        display: inline-block;
+        list-style: none;
+        font-size: var(--long-tabs-font-size);
+        font-weight: 500;
+        color: var(--long-tabs-color-text);
+        position: relative;
+        cursor: pointer;
+        transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+        &:hover {
+            color: var(--long-tabs-color-active);
+        }
+
+        @include when(active) {
+            color: var(--long-tabs-color-active);
+        }
+
+        @include when(disabled) {
+            color: var(--long-tabs-color-disabled);
+            cursor: not-allowed;
+        }
+    }
+
+    @include e(active-bar) {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        background-color: var(--long-tabs-color-active);
+        z-index: 1;
+        transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+
+    @include e(content) {
+        overflow: hidden;
+        position: relative;
+    }
+
+    // Card Style
+    @include m(card) {
+        .long-tabs__header {
+            border-bottom: 1px solid var(--long-tabs-border-color);
+            margin: 0 0 16px 0;
+        }
+
+        .long-tabs__nav-wrap::after {
+            display: none;
+        }
+
+        .long-tabs__item {
+            border: 1px solid transparent;
+            transition: none;
+            margin-right: 2px;
+            border-radius: 4px 4px 0 0;
+            background: #fafafa;
+
+            @include when(active) {
+                background: #fff;
+                border-color: var(--long-tabs-border-color);
+                border-bottom-color: #fff;
+            }
+        }
+    }
+}

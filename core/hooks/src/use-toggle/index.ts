@@ -16,3 +16,5 @@ export function useToggle(defaultValue = false) {
 
     return [state, toggle, { set, setLeft, setRight }] as const
 }
+
+export type UseToggleReturn = ReturnType<typeof useToggle>

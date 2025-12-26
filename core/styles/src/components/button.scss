@@ -57,6 +57,7 @@
         color: var(--long-color-primary-active);
         border-color: var(--long-color-primary-active);
         background-color: #fff;
+        transform: scale(0.96);
     }
 
     // Element: loading
@@ -155,6 +156,18 @@
             color: var(--long-color-white);
             background-color: var(--long-color-info-light-3);
             border-color: var(--long-color-info-light-3);
+        }
+    }
+
+    // Modifier: dashed
+    @include m(dashed) {
+        border-style: dashed;
+        background-color: var(--long-fill-color-blank);
+
+        &:hover,
+        &:focus {
+            color: var(--long-color-primary-hover);
+            border-color: var(--long-color-primary-hover);
         }
     }
 

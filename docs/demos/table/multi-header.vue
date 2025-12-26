@@ -1,19 +1,20 @@
 <template>
   <LongSpace direction="vertical" style="width: 100%">
     <LongTable :data="tableData" border>
-    <long-table-column prop="id" label="ID" width="80" />
-    <long-table-column label="员工信息">
-      <long-table-column label="基础资料">
-        <long-table-column prop="name" label="姓名" width="120" />
-        <long-table-column prop="age" label="年龄" width="80" />
-      </long-table-column>
-      <long-table-column label="岗位信息">
-        <long-table-column prop="role" label="职能" width="150" />
-        <long-table-column prop="city" label="城市" width="120" />
-      </long-table-column>
-    </long-table-column>
-    <long-table-column prop="status" label="状态" width="100" />
-  </long-table>
+      <LongTableColumn prop="id" label="ID" width="80" />
+      <LongTableColumn label="员工信息">
+        <LongTableColumn label="基础资料">
+          <LongTableColumn prop="name" label="姓名" width="120" />
+          <LongTableColumn prop="age" label="年龄" width="80" />
+        </LongTableColumn>
+        <LongTableColumn label="工作详情">
+          <LongTableColumn prop="dept" label="部门" width="150" />
+          <LongTableColumn prop="role" label="职位" width="150" />
+        </LongTableColumn>
+      </LongTableColumn>
+      <LongTableColumn prop="address" label="地址" />
+    </LongTable>
+  </LongSpace>
 </template>
 
 <script setup lang="ts">

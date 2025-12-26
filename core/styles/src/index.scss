@@ -1,7 +1,7 @@
 @use './common/var.scss' as *;
 @use 'sass:map';
 
-// 必须在任何样式规则之前使用 @use
+// 基础组件样式引入
 @use './components/button.scss';
 @use './components/calendar.scss';
 @use './components/input.scss';
@@ -23,98 +23,65 @@
 @use './components/space.scss';
 @use './components/card.scss';
 @use './components/skeleton.scss';
+@use './components/badge.scss';
+@use './components/descriptions.scss';
+@use './components/alert.scss';
+@use './components/tabs.scss';
+@use './components/tooltip.scss';
 @use './dark/index';
 
 :root {
-    /* --- Colors --- */
-    --long-color-white: #ffffff;
-    --long-color-black: #000000;
+    /* --- Foundation Fonts --- */
+    --long-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
-    // Brand Colors (AntD-like)
+    // Brand Colors
     --long-color-primary: #1677ff;
     --long-color-primary-hover: #4096ff;
     --long-color-primary-active: #0958d9;
     --long-color-primary-bg: #e6f4ff;
 
-    --long-color-success: #67c23a;
-    --long-color-warning: #e6a23c;
-    --long-color-danger: #f56c6c;
-    --long-color-error: #f56c6c;
-    --long-color-info: #909399;
+    // Neutral Colors
+    --long-text-color: rgba(0, 0, 0, 0.88);
+    --long-text-color-secondary: rgba(0, 0, 0, 0.45);
+    --long-border-color: #d9d9d9;
+    --long-bg-color: #ffffff;
+    --long-bg-color-page: #f5f5f5;
+
+    // Radius & Shadows
+    --long-border-radius: 6px;
+    --long-box-shadow-s: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --long-box-shadow-m: 0 6px 16px 0 rgba(0, 0, 0, 0.08);
+    --long-box-shadow-l: 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+    --long-focus-ring: 0 0 0 2px rgba(5, 145, 255, 0.1);
 
     @for $i from 1 through 9 {
         --long-color-primary-light-#{$i}: #{mix(#ffffff, #1677ff, $i * 10%)};
-        --long-color-success-light-#{$i}: #{mix(#ffffff, #67c23a, $i * 10%)};
-        --long-color-warning-light-#{$i}: #{mix(#ffffff, #e6a23c, $i * 10%)};
-        --long-color-danger-light-#{$i}: #{mix(#ffffff, #f56c6c, $i * 10%)};
-        --long-color-info-light-#{$i}: #{mix(#ffffff, #909399, $i * 10%)};
     }
 
-    --long-color-primary-dark-2: #{mix(#000000, #1677ff, 20%)};
-
-    /* --- Text Colors --- */
-    --long-text-color-primary: #303133;
-    --long-text-color-regular: #606266;
-    --long-text-color-secondary: #909399;
-    --long-text-color-placeholder: #a8abb2;
-    --long-text-color-disabled: #c0c4cc;
-
-    /* --- Border --- */
-    --long-border-color: #dcdfe6;
-    --long-border-color-light: #e4e7ed;
-    --long-border-color-lighter: #ebeef5;
-    --long-border-color-extra-light: #f2f6fc;
-    --long-border-color-dark: #d4d7de;
-    --long-border-color-darker: #cdd0d6;
-
-    /* --- Fill --- */
-    --long-fill-color: #f0f2f5;
-    --long-fill-color-light: #f5f7fa;
-    --long-fill-color-lighter: #fafafa;
-    --long-fill-color-extra-light: #fafcff;
+    /* --- Detailed Semantic Vars --- */
+    --long-border-color-light: #f0f0f0;
+    --long-border-color-lighter: #f5f5f5;
     --long-fill-color-blank: #ffffff;
-
-    /* --- Typography --- */
     --long-font-size-base: 14px;
     --long-font-weight-primary: 500;
-
-    /* --- Border Radius --- */
-    --long-border-radius-base: 4px;
-    --long-border-radius-small: 2px;
+    --long-border-radius-base: 6px;
     --long-border-radius-round: 20px;
     --long-border-radius-circle: 50%;
 
-    /* --- Sizes --- */
-    --long-component-size-large: 40px;
-    --long-component-size-default: 32px;
-    --long-component-size-small: 24px;
+    --long-transition-duration: 0.2s;
+    --long-transition-all: all var(--long-transition-duration) cubic-bezier(0.645, 0.045, 0.355, 1);
 
-    /* --- Shadows (Apex Level: Layered & Ambient) --- */
-    --long-box-shadow-level-1: 0 1px 2px rgba(0, 0, 0, 0.04);
-    --long-box-shadow-level-2: 0 4px 12px rgba(0, 0, 0, 0.08);
-    --long-box-shadow-level-3: 0 12px 32px rgba(0, 0, 0, 0.12);
-
-    --long-box-shadow-primary-glow: 0 0 12px rgba(64, 158, 255, 0.24);
-
-    --long-box-shadow: var(--long-box-shadow-level-2);
-    --long-box-shadow-light: var(--long-box-shadow-level-1);
-    --long-box-shadow-dark: var(--long-box-shadow-level-3);
-
-    /* --- Micro Borders --- */
-    --long-border-width-fine: 1px;
-    --long-border-style-fine: solid;
-    --long-border-color-soft: rgba(0, 0, 0, 0.04);
-
-    /* --- Transitions --- */
-    --long-transition-duration-fast: 0.2s;
-    --long-transition-duration: 0.3s;
-    --long-transition-function-ease-in-out-bezier: cubic-bezier(0.645, 0.045, 0.355, 1);
-    --long-transition-all: all var(--long-transition-duration) var(--long-transition-function-ease-in-out-bezier);
-
-    /* --- Z-Index --- */
     --long-index-normal: 1;
     --long-index-top: 1000;
     --long-index-popper: 2000;
     --long-index-dialog: 3000;
     --long-index-message: 4000;
+}
+
+body {
+    font-family: var(--long-font-family);
+    -webkit-font-smoothing: antialiased;
+    background-color: var(--long-bg-color-page);
+    color: var(--long-text-color);
+    margin: 0;
 }

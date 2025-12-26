@@ -1,0 +1,44 @@
+@use '../common/mixins.scss' as *;
+
+@include b(tooltip) {
+    display: inline-block;
+    position: relative;
+
+    @include e(popper) {
+        position: absolute;
+        background: rgba(0, 0, 0, 0.85);
+        color: #fff;
+        padding: 6px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        line-height: 1.5;
+        z-index: 2000;
+        white-space: nowrap;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-10px);
+        box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08);
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: rgba(0, 0, 0, 0.85);
+        }
+    }
+
+    // Fade animation
+    &-fade-enter-active,
+    &-fade-leave-active {
+        transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+
+    &-fade-enter-from,
+    &-fade-leave-to {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
