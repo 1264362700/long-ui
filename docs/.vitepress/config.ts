@@ -81,7 +81,8 @@ export default defineConfig({
                                 { text: 'Loading 加载', link: '/components/loading' },
                                 { text: 'Skeleton 骨架屏', link: '/components/skeleton' },
                                 { text: 'Pagination 分页', link: '/components/pagination' },
-                                { text: 'Breadcrumb 面包屑', link: '/components/breadcrumb' }
+                                { text: 'Breadcrumb 面包屑', link: '/components/breadcrumb' },
+                                { text: 'Drawer 抽屉', link: '/components/drawer' }
                             ]
                         },
                         {

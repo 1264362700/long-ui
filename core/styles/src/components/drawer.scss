@@ -1,0 +1,124 @@
+@use '../common/mixins.scss' as *;
+
+@include b(drawer) {
+    @include e(wrapper) {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        overflow: hidden;
+        margin: 0;
+        z-index: 2000;
+        pointer-events: none;
+    }
+
+    @include e(overlay) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--long-overlay-color-lighter);
+        pointer-events: auto;
+    }
+
+    position: absolute;
+    box-sizing: border-box;
+    background-color: var(--long-bg-color);
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--long-box-shadow-l);
+    overflow: hidden;
+    outline: 0;
+    pointer-events: auto;
+
+    @include m(rtl) {
+        height: 100%;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    @include m(ltr) {
+        height: 100%;
+        left: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    @include m(ttb) {
+        width: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+    @include m(btt) {
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    @include e(header) {
+        display: flex;
+        align-items: center;
+        margin-bottom: 32px;
+        padding: 20px 20px 0;
+    }
+
+    @include e(title) {
+        flex: 1;
+        line-height: 24px;
+        font-size: 18px;
+        color: var(--long-text-color-primary);
+    }
+
+    @include e(close-btn) {
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+        color: inherit;
+        background-color: transparent;
+        outline: none;
+        padding: 0;
+
+        &:hover {
+            color: var(--long-color-primary);
+        }
+    }
+
+    @include e(body) {
+        flex: 1;
+        padding: 20px;
+        overflow: auto;
+    }
+
+    @include e(footer) {
+        padding: 20px;
+        padding-top: 10px;
+        text-align: right;
+        box-sizing: border-box;
+    }
+}
+
+.drawer-fade-enter-active,
+.drawer-fade-leave-active {
+    transition: all 0.3s ease;
+}
+
+.drawer-fade-enter-from,
+.drawer-fade-leave-to {
+    opacity: 0;
+    transform: translateX(100%);
+
+    // Simple fade for overlay
+    .long-drawer__overlay {
+        opacity: 0;
+    }
+}
+
+// Specific animations based on direction could be more complex, keeping simple fade + slide implication for now or let CSS handle via modifiers if needed. 
+// For full correct slide animation, we need separate transitions for overlay and drawer panel. 
+// For now, sticking to a basic fade/slide effect.

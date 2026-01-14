@@ -27,6 +27,9 @@ import { LongDescriptions, LongDescriptionsItem } from './descriptions/index'
 import { LongAlert } from './alert/index'
 import { LongTabs, LongTabPane } from './tabs/index'
 import { LongTooltip } from './tooltip/index'
+import { LongDrawer } from './drawer'
+import { LongAvatar } from './avatar'
+import { LongBreadcrumb } from './breadcrumb'
 import type { App } from 'vue'
 
 const components = [
@@ -61,7 +64,10 @@ const components = [
     LongAlert,
     LongTabs,
     LongTabPane,
-    LongTooltip
+    LongTooltip,
+    LongAvatar,
+    LongBreadcrumb,
+    LongDrawer
 ]
 
 export default {
@@ -76,6 +82,7 @@ export * from './button'
 export * from './calendar'
 export * from './config-provider'
 export * from './input'
+export * from './drawer'
 export * from './avatar'
 export * from './breadcrumb'
 export * from './select'
