@@ -1,16 +1,16 @@
 <template>
   <div class="demo-group">
     <h4>基础分页</h4>
-    <long-pagination :total="50" v-model:current-page="page1" />
+    <long-pagination v-model:current-page="page1" :total="50" />
     
     <h4>更多页码 (折叠逻辑)</h4>
-    <long-pagination :total="200" v-model:current-page="page2" />
+    <long-pagination v-model:current-page="page2" :total="200" />
 
     <h4>带背景</h4>
-    <long-pagination background :total="50" v-model:current-page="page3" />
+    <long-pagination v-model:current-page="page3" background :total="50" />
 
     <h4>小型分页</h4>
-    <long-pagination small :total="50" v-model:current-page="page4" />
+    <long-pagination v-model:current-page="page4" small :total="50" />
   </div>
 </template>
 

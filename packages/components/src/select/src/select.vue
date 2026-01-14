@@ -131,7 +131,7 @@ const filteredOptions = computed(() => {
 })
 
 const showClear = computed(() => {
-    const hasValue = props.multiple 
+    const hasValue = props.multiple
         ? Array.isArray(props.modelValue) && props.modelValue.length > 0
         : !!props.modelValue
     return props.clearable && !props.disabled && hasValue
@@ -177,7 +177,7 @@ const handleRemoveTag = (val: string | number | boolean) => {
     if (props.disabled) return
     const option = (props.options as SelectOption[]).find(opt => opt.value === val)
     if (option?.disabled) return
-    
+
     const modelValue = Array.isArray(props.modelValue) ? [...props.modelValue] : []
     const index = modelValue.indexOf(val as any)
     if (index > -1) {
@@ -222,7 +222,7 @@ const handleFilterInput = (e: Event) => {
         border-radius: 4px;
         font-size: 12px;
         border: 1px solid rgba(64, 158, 255, 0.2);
-        
+
         &-text {
             max-width: 100px;
             overflow: hidden;
@@ -236,7 +236,7 @@ const handleFilterInput = (e: Event) => {
             font-size: 10px;
             opacity: 0.6;
             transition: opacity 0.2s;
-            
+
             &:hover {
                 opacity: 1;
             }

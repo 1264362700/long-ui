@@ -18,7 +18,7 @@ export function useClipboard() {
             await navigator.clipboard.writeText(text)
             message?.success('已成功复制到剪贴板')
             return true
-        } catch (err) {
+        } catch (_err) {
             message?.error('复制失败')
             return false
         }

@@ -1,7 +1,7 @@
 <template>
   <div class="demo-group">
     <div style="margin-bottom: 16px; display: flex; gap: 10px;">
-        <long-button @click="refresh" type="primary">刷新数据</long-button>
+        <long-button type="primary" @click="refresh">刷新数据</long-button>
         <long-button @click="handleDeleteLast">删除末页最后一条 (验证自动回溯)</long-button>
     </div>
 
@@ -16,8 +16,8 @@
 
     <div style="margin-top: 16px; display: flex; justify-content: flex-end;">
         <long-pagination 
-            :total="pagination.total" 
-            v-model:current-page="pagination.currentPage"
+            v-model:current-page="pagination.currentPage" 
+            :total="pagination.total"
             @change="handlePageChange"
         />
     </div>

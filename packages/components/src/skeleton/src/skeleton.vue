@@ -13,6 +13,6 @@ defineOptions({
   name: 'LongSkeleton'
 })
 
-const props = defineProps(skeletonProps)
+const _props = defineProps(skeletonProps)
 const ns = useNamespace('skeleton')
 </script>

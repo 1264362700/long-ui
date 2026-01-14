@@ -2,12 +2,27 @@ import type { App, Plugin } from 'vue'
 
 export type SFCWithInstall<T> = T & Plugin
 
-export const withInstall = <T>(comp: T) => {
+export const withInstall = <T>(comp: T, extra?: Record<string, any>) => {
     (comp as SFCWithInstall<T>).install = (app: App) => {
         const name = (comp as any).name
         app.component(name, comp as SFCWithInstall<T>)
+        if (extra) {
+            for (const [key, comp] of Object.entries(extra)) {
+                (app.component(key, comp))
+            }
+        }
+    }
+    if (extra) {
+        for (const [key, comp] of Object.entries(extra)) {
+            (comp as any)[key] = comp
+        }
     }
     return comp as SFCWithInstall<T>
+}
+
+export const withNoopInstall = <T>(component: T) => {
+    (component as SFCWithInstall<T>).install = () => { }
+    return component as SFCWithInstall<T>
 }
 
 export const makeInstaller = (components: Plugin[] = []) => {

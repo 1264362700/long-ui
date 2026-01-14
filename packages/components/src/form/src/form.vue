@@ -8,7 +8,7 @@
 import { provide, reactive, toRefs } from 'vue'
 import { useNamespace } from '@long-ui/hooks'
 import { formProps } from './form'
-import { formContextKey, type FormContext, type FormItemContext, type FormProps } from './constants'
+import { formContextKey, type FormContext, type FormItemContext } from './constants'
 
 const props = defineProps(formProps)
 
@@ -66,7 +66,7 @@ const validate = async (callback?: (valid: boolean, fields?: any) => void) => {
 
   let valid = true
   let count = 0
-  
+
   for (const field of fields) {
     try {
       await field.validate('')

@@ -106,7 +106,7 @@ const validate = async (trigger: string) => {
   })
 
   isValidating.value = true
-  
+
   return validator.validate({ [modelName]: val }, { firstFields: true })
     .then(() => {
       validateState.value = 'success'

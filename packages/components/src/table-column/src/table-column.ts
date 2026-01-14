@@ -1,4 +1,4 @@
-import type { ExtractPropTypes, PropType } from 'vue'
+import type { ExtractPropTypes, PropType, InjectionKey } from 'vue'
 
 export const tableColumnProps = {
     prop: {
@@ -14,5 +14,7 @@ export const tableColumnProps = {
         default: ''
     }
 } as const
+
+export const COLUMN_INJECTION_KEY: InjectionKey<any> = Symbol('LongTableColumn')
 
 export type TableColumnProps = ExtractPropTypes<typeof tableColumnProps>

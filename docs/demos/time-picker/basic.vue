@@ -1,7 +1,7 @@
 <template>
   <LongSpace>
-    <LongTimePicker v-model:modelValue="time1" placeholder="默认尺寸" />
-    <LongTimePicker v-model:modelValue="time2" size="small" placeholder="小型尺寸" />
+    <LongTimePicker v-model:model-value="time1" placeholder="默认尺寸" />
+    <LongTimePicker v-model:model-value="time2" size="small" placeholder="小型尺寸" />
   </LongSpace>
 </template>
 

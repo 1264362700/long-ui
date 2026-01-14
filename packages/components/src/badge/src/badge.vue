@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, type PropType } from 'vue'
+import { computed } from 'vue'
 import { useNamespace } from '@long-ui/hooks'
 import { badgeProps } from './badge'
 
@@ -25,33 +25,14 @@ defineOptions({
   name: 'LongBadge'
 })
 
-const props = defineProps({
-  value: [String, Number],
-  max: {
-    type: Number,
-    default: 99
-  },
-  isDot: {
-    type: Boolean,
-    default: false
-  },
-  hidden: {
-    type: Boolean,
-    default: false
-  },
-  type: {
-    type: String as PropType<'primary' | 'success' | 'warning' | 'danger' | 'info'>,
-    default: 'danger'
-  }
-})
-
+const props = defineProps(badgeProps)
 const ns = useNamespace('badge')
 
 const content = computed(() => {
   if (props.isDot) return ''
   if (typeof props.value === 'number' && typeof props.max === 'number') {
-    return (props.max as any) < (props.value as any) ? `${props.max}+` : props.value
+    return props.max < props.value ? `${props.max}+` : `${props.value}`
   }
-  return props.value
+  return `${props.value}`
 })
 </script>

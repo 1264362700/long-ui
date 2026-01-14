@@ -22,6 +22,6 @@ defineOptions({
   name: 'LongCard'
 })
 
-const props = defineProps(cardProps)
+const _props = defineProps(cardProps)
 const ns = useNamespace('card')
 </script>

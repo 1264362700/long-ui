@@ -7,8 +7,8 @@
 
     <!-- Pager -->
     <div :class="ns.e('pager-wrapper')">
-      <button 
-        :class="[ns.e('prev'), ns.is('disabled', currentPage <= 1)]" 
+      <button
+        :class="[ns.e('prev'), ns.is('disabled', currentPage <= 1)]"
         :disabled="currentPage <= 1 || disabled"
         @click="handlePageChange(currentPage - 1)"
       >
@@ -16,8 +16,8 @@
       </button>
 
       <ul :class="ns.e('pager')">
-        <li 
-          v-for="page in pagers" 
+        <li
+          v-for="page in pagers"
           :key="page"
           :class="[ns.e('item'), ns.is('active', page === currentPage)]"
           @click="handlePageChange(page)"
@@ -26,8 +26,8 @@
         </li>
       </ul>
 
-      <button 
-        :class="[ns.e('next'), ns.is('disabled', currentPage >= pageCount)]" 
+      <button
+        :class="[ns.e('next'), ns.is('disabled', currentPage >= pageCount)]"
         :disabled="currentPage >= pageCount || disabled"
         @click="handlePageChange(currentPage + 1)"
       >
@@ -80,7 +80,7 @@ const pagers = computed(() => {
     }
     array.push(count)
   }
-  
+
   // Basic de-duplication and filter
   return [...new Set(array)].sort((a, b) => {
       if (a === -1) return 0 // special handle for ellipsis positioning in this simple logic

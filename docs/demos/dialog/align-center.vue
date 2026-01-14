@@ -1,18 +1,13 @@
 <template>
-    <long-button @click="visible = true">Open Dialog</long-button>
-    <long-dialog v-model="visible" title="Warning" width="30%" align-center>
-        <span>Open the dialog from the center from the screen</span>
-        <template #footer>
-            <span class="dialog-footer">
-                <long-button @click="visible = false">Cancel</long-button>
-                <long-button type="primary" @click="visible = false">Confirm</long-button>
-            </span>
-        </template>
+  <div>
+    <long-button @click="visible = true">Align Center Dialog</long-button>
+    <long-dialog v-model="visible" title="Align Center" align-center>
+      <span>This message is vertically centered</span>
     </long-dialog>
+  </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref } from 'vue'
-
 const visible = ref(false)
 </script>

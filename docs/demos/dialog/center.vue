@@ -1,13 +1,13 @@
 <template>
-  <div class="demo-row">
-    <long-button type="primary" @click="visible = true">Center Dialog</long-button>
-    <long-dialog v-model="visible" title="Centered Dialog" center align-center>
-      <span>This is a centered dialog, looks more premium.</span>
+  <div>
+    <long-button @click="visible = true">Center Dialog</long-button>
+    <long-dialog v-model="visible" title="Warning" center>
+      <span>This is centered message</span>
       <template #footer>
-        <div style="text-align: center">
+        <span class="dialog-footer">
           <long-button @click="visible = false">Cancel</long-button>
           <long-button type="primary" @click="visible = false">Confirm</long-button>
-        </div>
+        </span>
       </template>
     </long-dialog>
   </div>

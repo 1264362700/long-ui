@@ -1,5 +1,5 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { ComponentSize, ComponentStatus } from '@long-ui/utils'
+import type { ComponentSize } from '@long-ui/utils'
 
 /**
  * Button 类型

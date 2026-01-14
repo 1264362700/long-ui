@@ -40,7 +40,7 @@ const checked = computed(() => props.modelValue === props.activeValue)
 
 const toggle = () => {
   if (props.disabled || props.loading) return
-  
+
   const newValue = checked.value ? props.inactiveValue : props.activeValue
   emit('update:modelValue', newValue)
   emit('change', newValue)

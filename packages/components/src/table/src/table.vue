@@ -34,7 +34,7 @@
             <td v-for="col in leafColumns" :key="col.id" :class="ns.e('cell')">
               <div class="cell">
                 <renderer v-if="col.slots?.default" :render="col.slots.default" :data="{ row, $index: rowIndex }" />
-                <template v-else>{{ getCellValue(row, col) }}</template>
+                <span v-else>{{ getCellValue(row, col) }}</span>
               </div>
             </td>
           </tr>
@@ -76,7 +76,6 @@ const getCellValue = (row: any, col: any) => {
     return row[col.prop]
 }
 
-// Compute header rows for multi-level headers
 const headerRows = computed(() => {
     const rows: any[][] = []
     

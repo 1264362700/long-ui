@@ -4,7 +4,7 @@ import { fileURLToPath } from 'url'
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
 // 项目根目录
-export const ROOT = resolve(__dirname, '..')
+export const ROOT = resolve(__dirname, '../..')
 
 // 核心模块目录
 export const CORE_DIR = resolve(ROOT, 'core')

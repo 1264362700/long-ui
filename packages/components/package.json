@@ -37,6 +37,7 @@
         "@long-ui/tokens": "workspace:*",
         "@long-ui/utils": "workspace:*",
         "async-validator": "^4.2.5",
-        "dayjs": "^1.11.10"
+        "dayjs": "^1.11.10",
+        "vue-router": "^4.0.0"
     }
 }

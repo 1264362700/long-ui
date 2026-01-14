@@ -48,7 +48,6 @@ const components = [
     LongForm,
     LongFormItem,
     LongTable,
-    LongTableColumn,
     LongTag,
     LongEmpty,
     LongLoading,
@@ -77,6 +76,8 @@ export * from './button'
 export * from './calendar'
 export * from './config-provider'
 export * from './input'
+export * from './avatar'
+export * from './breadcrumb'
 export * from './select'
 export * from './switch'
 export * from './radio'

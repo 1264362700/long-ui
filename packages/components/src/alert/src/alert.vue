@@ -14,12 +14,12 @@
         v-if="showIcon && iconComponent"
         :class="[ns.e('icon'), iconComponent]"
       ></i>
-      
+
       <div :class="ns.e('content')">
         <span v-if="title || $slots.title" :class="[ns.e('title'), ns.is('bold', !!description || !!$slots.default)]">
           <slot name="title">{{ title }}</slot>
         </span>
-        
+
         <p v-if="$slots.default || description" :class="ns.e('description')">
           <slot>{{ description }}</slot>
         </p>

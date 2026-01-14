@@ -4,7 +4,7 @@
     <div :class="ns.e('header')">
       <div :class="ns.e('nav-wrap')">
         <div :class="ns.e('nav-scroll')">
-          <div :class="ns.e('nav')" ref="navRef">
+          <div ref="navRef" :class="ns.e('nav')">
             <div
               v-for="pane in panes"
               :key="pane.props.name"
@@ -23,7 +23,7 @@
         </div>
       </div>
     </div>
-    
+
     <!-- Tab Content -->
     <div :class="ns.e('content')">
       <slot></slot>

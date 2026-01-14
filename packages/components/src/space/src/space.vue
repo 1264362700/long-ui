@@ -19,7 +19,7 @@ const ns = useNamespace('space')
 const style = computed<CSSProperties>(() => {
   const { size, direction } = props
   let gap = ''
-  
+
   if (Array.isArray(size)) {
     gap = `${size[1]}px ${size[0]}px`
   } else if (typeof size === 'number') {

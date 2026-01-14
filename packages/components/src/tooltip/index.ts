@@ -4,4 +4,4 @@ import Tooltip from './src/tooltip.vue'
 export const LongTooltip = withInstall(Tooltip)
 export default LongTooltip
 
-export * from './src/tooltip'
+export * from './src/tooltip.vue'

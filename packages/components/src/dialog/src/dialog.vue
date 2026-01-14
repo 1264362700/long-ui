@@ -121,7 +121,7 @@ onMounted(() => {
         visible.value = true
         emit('open')
     }
-    
+
     window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && props.modelValue && props.closeOnPressEscape) {
             handleClose()

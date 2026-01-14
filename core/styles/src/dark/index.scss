@@ -1,35 +1,35 @@
-@use 'sass:map';
-@use '../common/var' as *;
-
-// 暗黑模式变量
 @mixin dark-mode {
-    --#{$namespace}-color-white: #000000;
-    --#{$namespace}-color-black: #ffffff;
+    /* --- Dark Mode Palette (Premium Level) --- */
+    --long-bg-color-page: hsl(0, 0%, 0%);
+    /* Level 0: Pure depth */
+    --long-bg-color: hsl(0, 0%, 7%);
+    /* Level 1: Sidebar/Cards */
+    --long-bg-color-overlay: hsl(0, 0%, 12%);
+    /* Level 2: Modals/Menus */
 
-    --#{$namespace}-bg-color: #141414;
-    --#{$namespace}-bg-color-page: #0a0a0a;
-    --#{$namespace}-bg-color-overlay: #1d1e1f;
+    /* Typography in Dark */
+    --long-text-color: hsl(210, 10%, 90%);
+    --long-text-color-secondary: hsl(210, 10%, 65%);
+    --long-text-color-placeholder: hsl(210, 10%, 40%);
 
-    --#{$namespace}-text-color-primary: #e5eaf3;
-    --#{$namespace}-text-color-regular: #cfd3dc;
-    --#{$namespace}-text-color-secondary: #a3a6ad;
-    --#{$namespace}-text-color-placeholder: #8d9095;
-    --#{$namespace}-text-color-disabled: #6c6e72;
+    /* Border & Fill (Translucent Strategy) */
+    --long-border-color: hsla(0, 0%, 100%, 0.12);
+    --long-border-color-light: hsla(0, 0%, 100%, 0.08);
+    --long-fill-color-blank: hsla(0, 0%, 100%, 0.04);
 
-    --#{$namespace}-border-color-base: #4c4d4f;
-    --#{$namespace}-border-color-light: #414243;
-    --#{$namespace}-border-color-lighter: #363637;
-    --#{$namespace}-border-color-extra-light: #2b2b2c;
-    --#{$namespace}-border-color-dark: #58585b;
-    --#{$namespace}-border-color-darker: #636466;
+    /* Brand Color Re-calibration (Brighter for Dark) */
+    --long-primary-l: 60%;
+    --long-color-primary-light: hsla(var(--long-primary-h), var(--long-primary-s), var(--long-primary-l), 0.15);
 
-    --#{$namespace}-fill-color-base: #303030;
-    --#{$namespace}-fill-color-light: #262727;
-    --#{$namespace}-fill-color-lighter: #1d1d1d;
-    --#{$namespace}-fill-color-extra-light: #191919;
-    --#{$namespace}-fill-color-blank: #141414;
-    --#{$namespace}-fill-color-dark: #39393a;
-    --#{$namespace}-fill-color-darker: #424243;
+    /* Luxury Shadows for Dark */
+    --long-box-shadow-s: 0 4px 12px 0 rgba(0, 0, 0, 0.4);
+    --long-box-shadow-m: 0 8px 24px 0 rgba(0, 0, 0, 0.6);
+    --long-box-shadow-l: 0 12px 48px 0 rgba(0, 0, 0, 0.8);
+
+    /* Adjusted States */
+    --long-color-success: hsl(145, 60%, 50%);
+    --long-color-warning: hsl(38, 90%, 60%);
+    --long-color-danger: hsl(0, 70%, 65%);
 }
 
 html.dark {

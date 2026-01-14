@@ -12,7 +12,7 @@
         <long-switch v-model="form.delivery" />
       </long-form-item>
       <long-form-item label="Description">
-        <long-input type="textarea" v-model="form.desc" placeholder="Details about this environment..." />
+        <long-input v-model="form.desc" type="textarea" placeholder="Details about this environment..." />
       </long-form-item>
       <long-form-item>
         <long-button type="primary" @click="onSubmit">Deploy Changes</long-button>

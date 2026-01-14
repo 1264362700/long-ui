@@ -40,6 +40,7 @@ export default defineConfig({
                                 { text: 'useTable 表格钩子', link: '/hooks/use-table' },
                                 { text: 'useForm 表单钩子', link: '/hooks/use-form' },
                                 { text: 'useRequest 业务请求', link: '/hooks/use-request' },
+                                { text: 'useClipboard 剪贴板', link: '/hooks/use-clipboard' },
                                 { text: 'useStorage 持久化', link: '/hooks/use-storage' },
                                 { text: 'useNamespace 命名空间', link: '/hooks/use-namespace' }
                             ]
@@ -73,12 +74,14 @@ export default defineConfig({
                             text: '数据展示',
                             items: [
                                 { text: 'Table 表格', link: '/components/table' },
+                                { text: 'Avatar 头像', link: '/components/avatar' },
                                 { text: 'Badge 徽标', link: '/components/badge' },
                                 { text: 'Descriptions 描述列表', link: '/components/descriptions' },
                                 { text: 'Empty 空状态', link: '/components/empty' },
                                 { text: 'Loading 加载', link: '/components/loading' },
                                 { text: 'Skeleton 骨架屏', link: '/components/skeleton' },
-                                { text: 'Pagination 分页', link: '/components/pagination' }
+                                { text: 'Pagination 分页', link: '/components/pagination' },
+                                { text: 'Breadcrumb 面包屑', link: '/components/breadcrumb' }
                             ]
                         },
                         {

@@ -1,8 +1,8 @@
 <template>
   <div
     v-show="active"
-    :class="ns.b()"
     :id="`pane-${name}`"
+    :class="ns.b()"
     role="tabpanel"
   >
     <slot></slot>

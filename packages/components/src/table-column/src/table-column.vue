@@ -2,14 +2,9 @@
   <div v-if="false"></div>
 </template>
 
-<script lang="ts">
-import { type InjectionKey } from 'vue'
-export const COLUMN_INJECTION_KEY: InjectionKey<any> = Symbol('LongTableColumn')
-</script>
-
 <script setup lang="ts">
 import { inject, onMounted, onBeforeUnmount, useSlots, shallowRef, provide } from 'vue'
-import { tableColumnProps } from './table-column'
+import { tableColumnProps, COLUMN_INJECTION_KEY } from './table-column'
 import { TABLE_INJECTION_KEY } from '../../table/src/store'
 
 defineOptions({
@@ -35,7 +30,7 @@ provide(COLUMN_INJECTION_KEY, columnConfig.value)
 
 onMounted(() => {
   if (!store) return
-  
+
   const targetParent = parentColumn || null
   const currentIndex = targetParent ? targetParent.children.length : store.columns.value.length
   store.insertColumn(columnConfig.value, currentIndex, targetParent)

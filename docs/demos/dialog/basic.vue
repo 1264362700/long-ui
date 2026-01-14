@@ -1,13 +1,13 @@
 <template>
-  <div class="demo-row">
-    <long-button @click="visible = true">Open Dialog</long-button>
-    <long-dialog v-model="visible" title="Basic Dialog">
-      <span>This is a basic dialog</span>
+  <div>
+    <long-button @click="visible = true">Basic Dialog</long-button>
+    <long-dialog v-model="visible" title="Tips" width="30%">
+      <span>This is a message</span>
       <template #footer>
-        <div style="text-align: right">
+        <span class="dialog-footer">
           <long-button @click="visible = false">Cancel</long-button>
           <long-button type="primary" @click="visible = false">Confirm</long-button>
-        </div>
+        </span>
       </template>
     </long-dialog>
   </div>

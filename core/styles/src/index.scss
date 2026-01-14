@@ -26,51 +26,56 @@
 @use './components/badge.scss';
 @use './components/descriptions.scss';
 @use './components/alert.scss';
+@use './components/avatar.scss';
+@use './components/breadcrumb.scss';
 @use './components/tabs.scss';
 @use './components/tooltip.scss';
 @use './dark/index';
 
 :root {
-    /* --- Foundation Fonts --- */
-    --long-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    /* --- Foundation HSL Colors (Design Tokens 2.0) --- */
+    --long-primary-h: 217;
+    --long-primary-s: 100%;
+    --long-primary-l: 54%;
 
-    // Brand Colors
-    --long-color-primary: #1677ff;
-    --long-color-primary-hover: #4096ff;
-    --long-color-primary-active: #0958d9;
-    --long-color-primary-bg: #e6f4ff;
+    /* Brand Colors (Calculated via HSL) */
+    --long-color-primary: hsl(var(--long-primary-h), var(--long-primary-s), var(--long-primary-l));
+    --long-color-primary-hover: hsl(var(--long-primary-h), var(--long-primary-s), calc(var(--long-primary-l) + 6%));
+    --long-color-primary-active: hsl(var(--long-primary-h), var(--long-primary-s), calc(var(--long-primary-l) - 10%));
+    --long-color-primary-light: hsl(var(--long-primary-h), var(--long-primary-s), 96%);
 
-    // Neutral Colors
-    --long-text-color: rgba(0, 0, 0, 0.88);
-    --long-text-color-secondary: rgba(0, 0, 0, 0.45);
-    --long-border-color: #d9d9d9;
-    --long-bg-color: #ffffff;
-    --long-bg-color-page: #f5f5f5;
+    /* Neutral Colors (Precision Greyscale) */
+    --long-text-color: hsl(0, 0%, 15%);
+    --long-text-color-secondary: hsl(0, 0%, 45%);
+    --long-text-color-placeholder: hsl(0, 0%, 75%);
+    --long-border-color: hsl(0, 0%, 85%);
+    --long-border-color-light: hsl(0, 0%, 94%);
+    --long-bg-color: hsl(0, 0%, 100%);
+    --long-bg-color-page: hsl(220, 20%, 98%);
 
-    // Radius & Shadows
-    --long-border-radius: 6px;
-    --long-box-shadow-s: 0 2px 8px rgba(0, 0, 0, 0.06);
-    --long-box-shadow-m: 0 6px 16px 0 rgba(0, 0, 0, 0.08);
-    --long-box-shadow-l: 0 9px 28px 8px rgba(0, 0, 0, 0.05);
-    --long-focus-ring: 0 0 0 2px rgba(5, 145, 255, 0.1);
+    /* State Colors */
+    --long-color-success: hsl(145, 63%, 42%);
+    --long-color-warning: hsl(38, 92%, 50%);
+    --long-color-danger: hsl(0, 72%, 51%);
+    --long-color-info: hsl(210, 16%, 38%);
 
-    @for $i from 1 through 9 {
-        --long-color-primary-light-#{$i}: #{mix(#ffffff, #1677ff, $i * 10%)};
-    }
+    /* --- Luxury Shadow System (Multi-layered Physics) --- */
+    --long-box-shadow-s: 0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+    --long-box-shadow-m: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+    --long-box-shadow-l: 0 12px 32px 0 rgba(0, 0, 0, 0.12), 0 8px 20px -8px rgba(0, 0, 0, 0.08);
 
-    /* --- Detailed Semantic Vars --- */
-    --long-border-color-light: #f0f0f0;
-    --long-border-color-lighter: #f5f5f5;
-    --long-fill-color-blank: #ffffff;
-    --long-font-size-base: 14px;
-    --long-font-weight-primary: 500;
-    --long-border-radius-base: 6px;
-    --long-border-radius-round: 20px;
-    --long-border-radius-circle: 50%;
-
-    --long-transition-duration: 0.2s;
+    /* --- Interaction Tokens --- */
+    --long-border-radius: 8px;
+    --long-focus-ring: 0 0 0 3px hsla(var(--long-primary-h), var(--long-primary-s), var(--long-primary-l), 0.15);
+    --long-transition-duration: 0.25s;
     --long-transition-all: all var(--long-transition-duration) cubic-bezier(0.645, 0.045, 0.355, 1);
 
+    /* --- Typography --- */
+    --long-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --long-font-size-base: 14px;
+    --long-font-weight-primary: 500;
+
+    /* --- Layers --- */
     --long-index-normal: 1;
     --long-index-top: 1000;
     --long-index-popper: 2000;
@@ -84,4 +89,5 @@ body {
     background-color: var(--long-bg-color-page);
     color: var(--long-text-color);
     margin: 0;
+    line-height: 1.5715;
 }

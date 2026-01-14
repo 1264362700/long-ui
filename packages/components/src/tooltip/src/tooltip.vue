@@ -18,7 +18,7 @@ defineOptions({
   name: 'LongTooltip'
 })
 
-const props = defineProps({
+const _props = defineProps({
   content: { type: String, default: '' },
   placement: { type: String, default: 'top' }
 })
