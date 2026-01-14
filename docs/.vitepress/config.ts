@@ -84,7 +84,9 @@ export default defineConfig({
                                 { text: 'Breadcrumb 面包屑', link: '/components/breadcrumb' },
                                 { text: 'Drawer 抽屉', link: '/components/drawer' },
                                 { text: 'Steps 步骤条', link: '/components/steps' },
-                                { text: 'Timeline 时间线', link: '/components/timeline' }
+                                { text: 'Timeline 时间线', link: '/components/timeline' },
+                                { text: 'Collapse 折叠面板', link: '/components/collapse' },
+                                { text: 'Popconfirm 气泡确认框', link: '/components/popconfirm' }
                             ]
                         },
                         {

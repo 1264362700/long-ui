@@ -32,6 +32,8 @@ import { LongAvatar } from './avatar'
 import { LongBreadcrumb } from './breadcrumb'
 import { LongSteps, LongStep } from './steps'
 import { LongTimeline, LongTimelineItem } from './timeline'
+import { LongCollapse, LongCollapseItem } from './collapse'
+import { LongPopconfirm } from './popconfirm'
 import type { App } from 'vue'
 
 const components = [
@@ -73,7 +75,10 @@ const components = [
     LongSteps,
     LongStep,
     LongTimeline,
-    LongTimelineItem
+    LongTimelineItem,
+    LongCollapse,
+    LongCollapseItem,
+    LongPopconfirm
 ]
 
 export default {
@@ -114,3 +119,9 @@ export * from './skeleton/index'
 export * from './badge/index'
 export * from './descriptions/index'
 export * from './alert/index'
+export * from './tabs/index'
+export * from './tooltip/index'
+export * from './steps'
+export * from './timeline'
+export * from './collapse'
+export * from './popconfirm'

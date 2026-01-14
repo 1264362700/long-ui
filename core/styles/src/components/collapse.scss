@@ -1,0 +1,68 @@
+@use '../common/mixins.scss' as *;
+@use '../common/var.scss' as *;
+@use '../common/transition.scss' as *;
+
+@include b(collapse) {
+    border-top: 1px solid var(--long-border-color-light);
+    border-bottom: 1px solid var(--long-border-color-light);
+}
+
+@include b(collapse-item) {
+    @include e(header) {
+        display: flex;
+        align-items: center;
+        height: 48px;
+        line-height: 48px;
+        background-color: transparent;
+        color: var(--long-text-color);
+        cursor: pointer;
+        border-bottom: 1px solid var(--long-border-color-light);
+        font-size: 13px;
+        font-weight: 500;
+        transition: border-bottom-color 0.3s;
+        outline: none;
+
+        &.focusing:focus:not(:hover) {
+            color: var(--long-color-primary);
+        }
+    }
+
+    @include e(arrow) {
+        margin: 0 8px 0 auto;
+        transition: transform 0.3s;
+        font-weight: 300;
+    }
+
+    @include e(wrap) {
+        will-change: height;
+        background-color: transparent;
+        overflow: hidden;
+        box-sizing: border-box;
+        border-bottom: 1px solid var(--long-border-color-light);
+    }
+
+    @include e(content) {
+        padding-bottom: 25px;
+        font-size: 13px;
+        color: var(--long-text-color-secondary);
+        line-height: 1.7692307692;
+    }
+
+    &.is-active {
+        @include e(arrow) {
+            transform: rotate(90deg);
+        }
+    }
+
+    &.is-disabled {
+        @include e(header) {
+            color: var(--long-text-color-placeholder);
+            cursor: not-allowed;
+        }
+    }
+
+    // Remove last item border if inside standard collapse block (usuallyhandled by component logic or CSS)
+    &:last-child {
+        margin-bottom: -1px;
+    }
+}
