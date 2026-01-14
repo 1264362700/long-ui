@@ -1,0 +1,305 @@
+@use '../common/mixins.scss' as *;
+@use '../common/var.scss' as *;
+
+@include b(steps) {
+    display: flex;
+
+    @include m(simple) {
+        padding: 13px 8%;
+        border-radius: 4px;
+        background: var(--long-bg-color-overlay); // using overlay specific
+    }
+
+    @include m(vertical) {
+        height: 100%;
+        flex-direction: column;
+    }
+}
+
+@include b(step) {
+    position: relative;
+    flex-shrink: 1;
+
+    // Simple Mode adjustments
+    @include is(simple) {
+        display: flex;
+        align-items: center;
+
+        &:last-of-type {
+            @include e(line) {
+                display: none;
+            }
+        }
+
+        @include e(head) {
+            width: auto;
+            font-size: 0;
+            padding-right: 10px;
+        }
+
+        @include e(icon) {
+            background: transparent;
+            width: 16px;
+            height: 16px;
+            font-size: 14px;
+            border: none;
+            color: var(--long-text-color-placeholder);
+
+            @include is(text) {
+                border: 0;
+            }
+        }
+        
+        @include e(icon-inner) {
+            stroke-width: 2px;
+        }
+
+        @include e(main) {
+            position: relative;
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+        }
+        
+        @include e(title) {
+            font-size: 14px;
+            line-height: 20px;
+            color: var(--long-text-color-placeholder);
+        }
+
+        &.is-process {
+            @include e(icon) {
+                 color: var(--long-color-primary);
+            }
+             @include e(title) {
+                color: var(--long-text-color-primary);
+                font-weight: 700;
+            }
+        }
+        &.is-finish {
+            @include e(icon) {
+                 color: var(--long-color-primary);
+            }
+             @include e(title) {
+                color: var(--long-text-color-primary);
+            }
+        }
+         &.is-success {
+            @include e(icon) {
+                 color: var(--long-color-success);
+            }
+            @include e(title) {
+                color: var(--long-color-success);
+            }
+        }
+        &.is-error {
+            @include e(icon) {
+                 color: var(--long-color-danger);
+            }
+            @include e(title) {
+                color: var(--long-color-danger);
+            }
+        }
+    }
+
+    &:last-of-type {
+        flex-basis: auto !important;
+        flex-shrink: 0;
+        flex-grow: 0;
+
+        @include e(line) {
+            display: none;
+        }
+
+        @include e(main) {
+             // 仅对非 simple 和 非 center 有效
+             // 实际上需要看 JS 逻辑，CSS 这里简单处理
+        }
+    }
+
+    @include e(head) {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        
+        @include is(process) {
+             color: var(--long-text-color-primary);
+             border-color: var(--long-text-color-primary);
+        }
+        @include is(wait) {
+             color: var(--long-text-color-placeholder);
+             border-color: var(--long-text-color-placeholder);
+        }
+        @include is(success) {
+            color: var(--long-color-success);
+            border-color: var(--long-color-success);
+        }
+        @include is(error) {
+             color: var(--long-color-danger);
+             border-color: var(--long-color-danger);
+        }
+        @include is(finish) {
+             color: var(--long-color-primary);
+             border-color: var(--long-color-primary);
+        }
+    }
+
+    @include e(line) {
+        position: absolute;
+        border-color: inherit;
+        background-color: var(--long-border-color);
+        top: 11px;
+        left: 0;
+        right: 0;
+        height: 2px;
+    }
+
+    @include e(line-inner) {
+        display: block;
+        border-width: 1px;
+        border-style: solid;
+        border-color: inherit;
+        transition: 0.15s ease-out;
+        box-sizing: border-box;
+        width: 0;
+        height: 0; // Default height handled above or by JS lineStyle
+        background-color: var(--long-color-primary); // Default finish color?
+    }
+
+    @include e(icon) {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 24px;
+        height: 24px;
+        font-size: 14px;
+        box-sizing: border-box;
+        background: var(--long-bg-color); // covers the line
+        transition: 0.15s ease-out;
+        border: 2px solid;
+        border-radius: 50%;
+        border-color: inherit; // from state color
+        color: inherit;
+
+        @include is(text) {
+             border-radius: 50%;
+             border: 2px solid;
+             border-color: inherit;
+        }
+        
+    }
+    
+    @include e(icon-inner) {
+        display: inline-block;
+        user-select: none;
+        text-align: center;
+        font-weight: 700;
+        line-height: 1;
+        color: inherit;
+    }
+
+    @include e(main) {
+        white-space: normal;
+        text-align: center;
+    }
+
+    @include e(title) {
+        font-size: 16px;
+        line-height: 38px;
+        color: inherit; // use state color or default text? Usually title is text-primary
+        
+        // Override for states
+        // In Element, title color reflects status
+    }
+    
+    @include e(description) {
+        padding-right: 10%;
+        margin-top: -5px;
+        font-size: 12px;
+        line-height: 20px;
+        font-weight: 400;
+        color: var(--long-text-color-secondary);
+    }
+    
+    // States coloring override for full block
+     &.is-process {
+         @include e(head) {
+             color: var(--long-text-color-primary);
+             border-color: var(--long-text-color-primary);
+        }
+         @include e(title) {
+             color: var(--long-text-color-primary);
+             font-weight: 700;
+         }
+    }
+     &.is-wait {
+         @include e(head) {
+             color: var(--long-text-color-placeholder);
+             border-color: var(--long-text-color-placeholder);
+        }
+         @include e(title) {
+             color: var(--long-text-color-placeholder);
+         }
+    }
+    &.is-success {
+         @include e(head) {
+             color: var(--long-color-success);
+             border-color: var(--long-color-success);
+        }
+        @include e(title) {
+            color: var(--long-color-success);
+        }
+        @include e(line-inner) {
+             border-color: var(--long-color-success);
+             background-color: var(--long-color-success);
+        }
+    }
+    &.is-error {
+         @include e(head) {
+             color: var(--long-color-danger);
+             border-color: var(--long-color-danger);
+        }
+        @include e(title) {
+            color: var(--long-color-danger);
+        }
+    }
+    &.is-finish {
+         @include e(head) {
+             color: var(--long-color-primary);
+             border-color: var(--long-color-primary);
+        }
+        @include e(title) {
+            color: var(--long-color-primary);
+        }
+         @include e(line-inner) {
+             border-color: var(--long-color-primary);
+             background-color: var(--long-color-primary); 
+             // Note: line-inner width comes from JS. If it's width 0, it's invisible. 
+             // Logic in vue needs to set width 100% if PREVIOUS steps are done.
+        }
+    }
+
+    @include is(center) {
+        text-align: center;
+        
+        @include e(head) {
+            text-align: center;
+        }
+        @include e(line) {
+             left: 50%;
+             right: -50%;
+        }
+        @include e(main) {
+             text-align: center;
+        }
+        @include e(description) {
+            padding-left: 20%;
+            padding-right: 20%;
+        }
+    }
+
+    // Adjustments for vertical mode
+    // (If needed, complex to add here fully without bloated CSS, sticking to horizontal/simple primary focus)
+}

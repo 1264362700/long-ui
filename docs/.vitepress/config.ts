@@ -82,7 +82,9 @@ export default defineConfig({
                                 { text: 'Skeleton 骨架屏', link: '/components/skeleton' },
                                 { text: 'Pagination 分页', link: '/components/pagination' },
                                 { text: 'Breadcrumb 面包屑', link: '/components/breadcrumb' },
-                                { text: 'Drawer 抽屉', link: '/components/drawer' }
+                                { text: 'Drawer 抽屉', link: '/components/drawer' },
+                                { text: 'Steps 步骤条', link: '/components/steps' },
+                                { text: 'Timeline 时间线', link: '/components/timeline' }
                             ]
                         },
                         {

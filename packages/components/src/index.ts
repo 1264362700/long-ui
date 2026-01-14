@@ -30,6 +30,8 @@ import { LongTooltip } from './tooltip/index'
 import { LongDrawer } from './drawer'
 import { LongAvatar } from './avatar'
 import { LongBreadcrumb } from './breadcrumb'
+import { LongSteps, LongStep } from './steps'
+import { LongTimeline, LongTimelineItem } from './timeline'
 import type { App } from 'vue'
 
 const components = [
@@ -67,7 +69,11 @@ const components = [
     LongTooltip,
     LongAvatar,
     LongBreadcrumb,
-    LongDrawer
+    LongDrawer,
+    LongSteps,
+    LongStep,
+    LongTimeline,
+    LongTimelineItem
 ]
 
 export default {

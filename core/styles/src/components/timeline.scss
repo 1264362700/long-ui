@@ -1,0 +1,112 @@
+@use '../common/mixins.scss' as *;
+@use '../common/var.scss' as *;
+
+@include b(timeline) {
+    margin: 0;
+    font-size: 14px;
+    list-style: none;
+    padding: 0;
+}
+
+@include b(timeline-item) {
+    position: relative;
+    padding-bottom: 20px;
+
+    @include e(wrapper) {
+        position: relative;
+        padding-left: 28px;
+        top: -3px;
+    }
+
+    @include e(tail) {
+        position: absolute;
+        left: 4px;
+        height: 100%;
+        border-left: 2px solid var(--long-border-color);
+    }
+
+    @include e(icon) {
+        color: #fff;
+        font-size: 12px;
+    }
+
+    @include e(node) {
+        position: absolute;
+        background-color: var(--long-border-color-light); // default
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include em(node, normal) {
+            left: -1px;
+            width: 12px;
+            height: 12px;
+        }
+
+        @include em(node, large) {
+            left: -2px;
+            width: 14px;
+            height: 14px;
+        }
+
+        @include em(node, primary) {
+            background-color: var(--long-color-primary);
+        }
+
+        @include em(node, success) {
+            background-color: var(--long-color-success);
+        }
+
+        @include em(node, warning) {
+            background-color: var(--long-color-warning);
+        }
+
+        @include em(node, danger) {
+            background-color: var(--long-color-danger);
+        }
+
+        @include em(node, info) {
+            background-color: var(--long-color-info);
+        }
+
+        @include is(hollow) {
+            background-color: var(--long-bg-color);
+            border-color: var(--long-border-color);
+            border-width: 2px;
+            border-style: solid;
+        }
+    }
+
+    @include e(dot) {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @include e(content) {
+        color: var(--long-text-color);
+    }
+
+    @include e(timestamp) {
+        color: var(--long-text-color-secondary);
+        line-height: 1;
+        font-size: 13px;
+
+        @include is(top) {
+            margin-bottom: 8px;
+            padding-top: 4px;
+        }
+
+        @include is(bottom) {
+            margin-top: 8px;
+        }
+    }
+
+    &:last-child {
+        @include e(tail) {
+            display: none;
+        }
+    }
+}
